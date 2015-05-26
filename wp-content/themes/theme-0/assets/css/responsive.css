@@ -1,0 +1,618 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+  
+/*
+
+Aella Event Planner
+
+[Table of contents]
+
+1. Body
+	2. Header / .header
+		2.1. Navigation / #primary-navigation
+	3. Main Content / #main-content
+		3.1. Section / section
+	4. Footer / .footer
+*/
+
+@media (min-width: 768px) {
+	
+}
+@media (min-width: 992px) {
+	
+}
+@media (min-width: 1200px) {
+
+	html{
+		height: 100%;
+	}
+	.home.style_v2, 
+	.home.style_v2 #wrap, 
+	.home.style_v2 #main-content, 
+	.home.style_v2 #main-content #portfolio,
+	.home.style_v2 .slider-wrapper,
+	.home.style_v2 .nivoSlider,
+	
+	.home.style_v3, 
+	.home.style_v3 #wrap, 
+	.home.style_v3 #main-content, 
+	.home.style_v3 #main-content #portfolio,
+	.home.style_v3 .slider-wrapper,
+	.home.style_v3 .nivoSlider,
+	
+	.home.style_v4, 
+	.home.style_v4 #wrap, 
+	.home.style_v4 #main-content, 
+	.home.style_v4 #main-content #portfolio,
+	.home.style_v4 .slider-wrapper,
+	.home.style_v4 .nivoSlider{
+		height: 100%;
+		overflow: hidden;
+	}
+	.home.style_v2 #main-content,
+	.home.style_v4 #main-content{
+		padding-bottom: 125px;
+	}
+	.home.style_v3 #main-content{
+		padding-bottom: 45px;
+	}
+	.home.style_v2 .footer,
+	.home.style_v3 .footer,
+	.home.style_v4 .footer{
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 50px;
+		z-index: 1;
+	}
+	.home.style_v2.admin-bar .footer,
+	.home.style_v3.admin-bar .footer,
+	.home.style_v4.admin-bar .footer{
+		bottom: 22px;
+	}
+	
+	.style_v2 #navbar a.dropdown,
+	.style_v4 #navbar a.dropdown{
+		display: none;
+	}
+	
+	#carousel-testimonials article,
+	.aella-tabs,
+	#carousel-galleries_v3{
+		width: 60%
+	}
+	.style_v1 #carousel-testimonials article,
+	.style_v1 .aella-tabs,
+	.style_v1 #carousel-galleries_v3{
+		width: 75%
+	}
+	.aella-team {
+	    margin-left: auto;
+	    margin-right: auto;
+	    width: 80%;
+	}
+}
+@media (min-width: 1900px) {
+	
+	body.home.style_v1, .home.style_v1 #wrap, .home.style_v1 #main-content{
+		height: 100%;
+		overflow: hidden;
+	}
+	
+	h1.entry-title{
+		padding-top: 100px;
+		margin-bottom: 30px;
+	}
+	.header{
+		padding-top: 100px;
+	}
+	#logo{
+		margin-bottom: 90px;
+	}
+	.aella-gallery{
+		width: 25%;
+	}
+	.style_v2 .aella-gallery,
+	.style_v3 .aella-gallery,
+	.style_v4 .aella-gallery{
+		width: 20%;
+	}
+	.carousel-gallery .entry-thumbnail-inner{
+		height: 700px;
+	}
+	
+	/* Main Content */
+	.entry-sub-title{
+		max-width: 45%;
+		margin-bottom: 50px;
+	}
+	.entry-content, 
+	.entry-social,
+	.comments-area,
+	#carousel-galleries_v3{
+		max-width: 65%;
+	}
+	#carousel-testimonials article,
+	.aella-tabs,
+	#carousel-galleries_v3{
+		width: 55%
+	}
+	.style_v1 #carousel-testimonials article,
+	.style_v1 .aella-tabs,
+	.style_v1 #carousel-galleries_v3{
+		width: 65%
+	}
+	.aella-team {
+	    width: 90%;
+	}
+	.entry-content{
+		margin: 50px auto 30px;
+	}
+	.page-servies .entry-thumbnail,
+	.page-servies .entry-content-custom{
+		margin-bottom: 50px;
+	}
+	.aella-team .aella-member{
+		margin: 0 40px 30px;
+	}
+	#carousel-testimonials .carousel-control{
+		left: 25%;
+	}
+	#carousel-testimonials .carousel-control.right{
+		left: auto;
+		right: 25%;
+	}
+	#map_canvas{
+		height: 700px;
+	}
+}
+@media (max-width: 1199px) {
+	/* Header */
+	.header{
+		min-height: 0 !important;
+	}
+	.style_v1 .header{
+		float: none;
+	    width: auto !important;
+	}
+	.style_v1 #logo{
+		margin: 0 0 20px;
+	}
+	.style_v1 #primary-navigation{
+		margin: 0 0 20px;
+	}
+	.style_v1 #navbar{
+		padding: 0;
+	}
+	.style_v1 #navbar .nav{
+		display: inline-block;
+	}
+	.style_v1 #navbar .nav > li{
+		float: left;
+		margin: 0;
+		padding: 0;
+	}
+	.style_v1 #navbar .nav > li > a{
+		padding: 0 20px;
+	}
+	.style_v1 #navbar .nav > li.has-children > a,
+	.style_v2 #navbar .nav > li.has-children > a,
+	.style_v4 #navbar .nav > li.has-children > a{
+		padding: 0 0 0 20px;
+	}
+	.style_v1 #navbar .nav > li > a.dropdown,
+	.style_v2 #navbar .nav > li > a.dropdown,
+	.style_v4 #navbar .nav > li > a.dropdown{
+		padding: 0 10px 0 0;
+	    position: static;
+	    float: right;
+	    text-align: center;
+	    display: block;
+	    width: 40px;
+	}
+	.style_v1 #navbar ul.nav > li > a::after{
+	    bottom: 11px;
+	    height: auto;
+	    left: 0;
+	    margin: 0;
+	    top: 13px;
+	    width: 1px;
+	}
+	.style_v1 #navbar ul.nav > li:first-child > a::after{
+		display: none !important;
+	}
+	
+	/* Main Content */ 
+	.main-content{
+		min-height: 0 !important;
+	}
+	.style_v1 .main-content{
+		width: auto !important;
+		float: none;
+	}
+	
+	/* Footer */
+	.style_v1 .footer{
+		margin: 0;
+	    padding: 20px;
+	    position: static;
+	    text-align: right;
+	    width: auto !important;
+	    line-height: 26px;
+	}
+	.style_v1 .footer ul.social{
+		border: 0 none;
+	    float: left;
+	    margin: 0;
+	    padding: 0;
+	    text-align: center;
+	}
+	.style_v1 .footer .copyright{
+		margin: 0;
+	}
+	.style_v1 .footer ul.social::after{
+		display: none;
+	}
+	.single .blog-post{
+		margin-top: 0px;
+	}
+}
+@media (max-width: 991px) {
+	.style_v2 .aella-gallery, 
+	.style_v3 .aella-gallery, 
+	.style_v4 .aella-gallery{
+		width: 33.33%;
+	}
+	.single-member article figure{
+		float: none;
+		width: auto;
+		margin-bottom: 20px;
+	}
+	.single-member article figure ~ *{
+		width: auto;
+		padding-right: 0;
+		overflow: visible;
+		max-width: none;
+	}
+	
+	.carousel-gallery .entry-thumbnail-inner{
+		height: 450px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.style_v1 #navbar ul.nav ul{
+	    left: 0;
+	    min-width: 200px;
+	    padding: 0 20px 10px;
+	    position: absolute;
+	    text-align: left;
+	    top: 100%;
+	    margin-top: 30px;
+	    z-index: 999;
+	}
+	.style_v1 #navbar ul.nav li.active > ul,
+	.style_v1 #navbar ul.nav li.active:hover > ul{
+		display: none;
+	}
+	.style_v1 #navbar ul.nav ul li {
+	    line-height: 30px;
+	}
+	.style_v1 #navbar ul.nav > li.active > a::after{
+		display: block;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.style_v1 #navbar ul.nav ul{
+	    left: 0;
+	    min-width: 200px;
+	    padding: 0 20px 10px;
+	    position: absolute;
+	    text-align: left;
+	    top: 100%;
+	    margin-top: 30px;
+	    z-index: 999;
+	}
+	.style_v1 #navbar ul.nav li.active > ul,
+	.style_v1 #navbar ul.nav li.active:hover > ul{
+		display: none;
+	}
+	.style_v1 #navbar ul.nav ul li {
+	    line-height: 30px;
+	}
+	.aella-tabs{
+		max-width: 95%;
+	}
+	.style_v1 #navbar ul.nav > li.active > a::after{
+		display: block;
+	}
+	.style_v1 #navbar .nav > li > a,
+	.style_v2 #navbar .nav > li > a,
+	.style_v4 #navbar .nav > li > a{
+		padding: 0 10px;
+	}
+	.style_v1 #navbar .nav > li.has-children > a,
+	.style_v2 #navbar .nav > li.has-children > a,
+	.style_v4 #navbar .nav > li.has-children > a{
+		padding: 0 0 0 10px;
+	}
+	.style_v1 #navbar .nav > li > a.dropdown, 
+	.style_v2 #navbar .nav > li > a.dropdown, 
+	.style_v4 #navbar .nav > li > a.dropdown{
+		padding: 0;
+		width: 30px;
+	}
+}
+@media screen and (max-width: 767px) {
+	#config{
+		display: none !important;
+	}
+	.style_v2 #logo,
+	.style_v3 #logo,
+	.style_v4 #logo{
+		left: 30px;
+    	text-align: left;
+    	width: 100px;
+	}
+	/*
+	.style_v2 #logo img,
+	.style_v3 #logo img,
+	.style_v4 #logo img{
+		width: 80%;
+	}*/
+	.style_v4 #logo{
+		left: 30px !important;
+	}
+	.style_v1 #primary-navigation{
+		margin: 0;
+		text-align: left;
+	}
+	.style_v2 #primary-navigation,
+	.style_v4 #primary-navigation{
+		float: none;
+	    line-height: 38px;
+	    text-align: right;
+	}
+	.style_v1 .navbar-header,
+	.style_v2 .navbar-header,
+	.style_v4 .navbar-header{
+		padding: 20px;
+	}
+	.style_v1 .navbar-brand{
+		display: block;
+	}
+	.style_v1 #navbar{
+		padding: 10px 0;
+		margin: 0 20px
+	}
+	.style_v2 #navbar,
+	.style_v4 #navbar{
+		padding: 10px;
+		margin: 0 20px
+	}
+	.style_v3 #navbar{
+		display: block;
+		border: 0;
+		box-shadow: none;
+	}
+	.style_v1 #navbar .nav,
+	.style_v2 #navbar .nav,
+	.style_v4 #navbar .nav{
+		display: block;
+	}
+	.style_v1 #navbar .nav li,
+	.style_v2 #navbar .nav li,
+	.style_v4 #navbar .nav li{
+		float: none;
+	}
+	.style_v1 #navbar ul.nav li a,
+	.style_v2 #navbar ul.nav li a,
+	.style_v4 #navbar ul.nav li a,
+	.style_v1 #navbar .nav > li.has-children > a, 
+	.style_v2 #navbar .nav > li.has-children > a, 
+	.style_v4 #navbar .nav > li.has-children > a{
+		padding: 0;
+	}
+	.style_v2 #navbar .nav > li > a.dropdown, 
+	.style_v4 #navbar .nav > li > a.dropdown{
+		float: none;
+	}
+	.style_v1 #navbar ul.nav > li > a::after,
+	.style_v2 #navbar ul.nav > li > a::after,
+	.style_v4 #navbar ul.nav > li > a::after,
+	.style_v1 #navbar ul.nav > li > a::before,
+	.style_v2 #navbar ul.nav > li > a::before,
+	.style_v4 #navbar ul.nav > li > a::before{
+		display: none;
+	}
+	.style_v1 #navbar li ul{
+		padding-left: 20px;
+	}
+	.style_v2 #navbar ul.nav ul,
+	.style_v4 #navbar ul.nav ul{
+		position: static;
+    	text-align: right;
+    	background: none !important;
+	}
+	.style_v2 #navbar ul.nav li:hover > ul,
+	.style_v4 #navbar ul.nav li:hover > ul{
+		display: none;
+	}
+	.style_v2 #navbar ul.nav li.active > ul,
+	.style_v4 #navbar ul.nav li.active > ul{
+		display: block;
+	}
+	.style_v2 #navbar ul{
+		float: none;
+	}
+	.style_v1 #navbar a.dropdown{
+		text-align: center;
+	}
+	.style_v2 #navbar .nav li a.dropdown,
+	.style_v4 #navbar .nav li a.dropdown{
+		display: inline-block;
+	    text-align: center;
+	}
+	
+	/* Main Content */
+	.entry-sub-title{
+		max-width: 65%;
+	}
+	.entry-content, 
+	#carousel-testimonials article,
+	.entry-social,
+	.comments-area,
+	#carousel-galleries_v3{
+		max-width: 85%;
+	}
+	.pageFixed .pageFixed-inner{
+		padding: 50px;
+	}
+	.carousel-gallery .carousel-inner{
+		margin-top: 0;
+	}
+	.pageFixed .carousel .carousel-control{
+		left: -50px;
+	}
+	.pageFixed .carousel .carousel-control.right{
+		left: auto;
+		right: -50px;
+	}
+	.carousel-gallery .entry-thumbnail-inner{
+		height: 350px;
+	}
+	.carousel-gallery h2.entry-title{
+	    left: 0;
+	    margin: 0 !important;
+	    padding: 10px;
+	    right: 0;
+	    top: 0;
+	}
+	#carousel-testimonials .entry-content::after, 
+	#carousel-testimonials .entry-content::before{
+		left: -20px;
+	}
+	#carousel-testimonials .entry-content::after{
+		left: auto;
+		right: 0;
+		bottom: 0;
+	}
+	#carousel-testimonials h3.entry-title{
+		width: auto;
+	}
+	#carousel-testimonials .carousel-control{
+		left: 0;
+	}
+	#carousel-testimonials .carousel-control.right{
+		left: auto;
+		right: 0;
+	}
+	.aella-tabs{
+		max-width: none;
+		margin-left: 20px;
+		margin-right: 20px;
+		overflow-x: auto; 
+	}
+	.aella-tabs > *{
+		min-width: 700px;
+	}
+	.filters-category{
+		display: block;
+	}
+	.filters .searchform{
+		margin: 20px 0 0;
+	}
+	.emtry-maps iframe{
+		height: 300px;
+	}
+	.main-content .aella-gallery{
+		width: 50%;
+	}
+	.page-servies .entry-content-custom .row > [class^="col"].pull-right{
+		float: none !important;
+	}
+}
+@media screen and (max-width: 480px) {
+	.style_v3 .navbar-header{
+		left: auto;
+	    position: fixed;
+	    right: 15px;
+	    top: 15px;
+	}
+	h1.entry-title{
+		font-size: 38px;
+	}
+	h2.entry-title{
+		font-size: 26px;
+	}
+	h2.entry-title{
+		font-size: 22px;
+	}
+	.loading{
+		font-size: 22px;
+	}
+	.portfolio .nivo-caption{
+		padding: 10px;
+		height: 60px;
+	}
+	.style_v2 .portfolio .nivo-caption,
+	.style_v3 .portfolio .nivo-caption,
+	.style_v4 .portfolio .nivo-caption{
+		bottom: 10px;
+	    margin: 0;
+	    position: absolute;
+	    right: 10px !important;
+	    top: auto;
+	}
+	.portfolio .nivo-controlNav,
+	.portfolio .nivo-directionNav,
+	.portfolio #pullDown{
+		display: none;
+	}
+	.carousel-gallery .entry-thumbnail-inner{
+		height: 250px;
+	}
+	#commentform p{
+		width: auto;
+		text-align: left;
+	}
+	#commentform label{
+		text-align: left;
+		float: none;
+		display: block;
+	}
+	#commentform input,
+	#commentform textarea{
+		margin-left: 0;
+		width: 100%;
+	}
+	#commentform input#submit{
+		margin-left: 0;
+	}
+	.wpcf7-form p{
+		width: auto;
+		text-align: left;
+	}
+	.wpcf7-form label{
+		text-align: left;
+		float: none;
+		display: block;
+	}
+	.wpcf7-form input,
+	.wpcf7-form textarea{
+		margin-left: 0;
+		width: 100%;
+	}
+	.wpcf7-form input#submit{
+		margin-left: 0;
+	}
+	.main-content .aella-gallery{
+		width: 100%;
+	}
+	.style_v2 .footer,
+	.style_v3 .footer{
+		padding: 0;
+	}
+}

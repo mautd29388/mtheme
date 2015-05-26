@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+  
+/*
+
+Aella Event Planner
+
+Content Tabel
++---------------+
+
+Text Color: #757575;
+Featured color: #b3885e;
+*/
+/* Background Color */
+#navbar ul.nav > li > a:hover:after,
+.footer ul.social a:hover,
+.single-member ul.social a:hover,
+.button button,
+.button a,
+.button input,
+.aella-gallery h2.entry-title,
+.aella-gallery figcaption a,
+.carousel-gallery .carousel-indicators li.active,
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+.author a:hover:before,
+.style_v2 .footer ul.social a:hover,
+.style_v3 .footer ul.social a:hover,
+#commentform .form-submit .submit{
+	background-color: @featured_color;
+}
+.aella-gallery h2.entry-title,
+.aella-gallery figcaption a{
+	background-color: fade(@featured_color, 80%);
+}
+.button button:before,
+.button a:before,
+.button input:hover,
+.button input:focus,
+#commentform .form-submit .submit:hover{
+	background-color: desaturate(darken(@featured_color, 18), 5);
+}
+
+
+/* Text Color */
+a,
+a:hover,
+a:focus,
+#navbar ul.nav li a:hover,
+#navbar ul.nav li a:focus,
+#navbar ul.nav li.active > a,
+.style_v2 #navbar ul.nav li a:hover,
+.style_v2 #navbar ul.nav li a:focus,
+.style_v2 #navbar ul.nav li.active > a,
+.style_v3 #navbar ul.nav li a:hover,
+.style_v3 #navbar ul.nav li a:focus,
+.style_v3 #navbar ul.nav li.active > a,
+.style_v4 #navbar ul.nav li a:hover,
+.style_v4 #navbar ul.nav li a:focus,
+.style_v4 #navbar ul.nav li.active > a,
+.portfolio .nivo-directionNav .nivo-prevNav:hover,
+.portfolio .nivo-directionNav .nivo-nextNav:hover,
+.portfolio #pullDown:hover,
+h2.entry-title a:hover,
+h1.entry-title a:hover,
+h3.entry-title a:hover,
+.carousel .carousel-control:hover,
+.pageFixed .pullUp a:hover,
+.author a:hover,
+.filters #searchsubmit:hover,
+.filters #searchsubmit:focus,
+.comment-meta a:hover,
+#carousel-galleries_v3 .aella-gallery h2.entry-title a:hover{
+	color: @featured_color;
+}
+a:hover,
+a:focus{
+	color: fade(@featured_color, 80%);
+}
+
+
+/* Border Color */
+.button button,
+.button a,
+.button input,
+#commentform input#submit{
+	border-color: desaturate(darken(@featured_color, 18), 5); 
+}
+
+
+/* box-shadow */
+.footer ul.social a:after,
+.single-member ul.social a:after{
+	-moz-box-shadow: 0 0 0 2px @featured_color;
+	-webkit-box-shadow: 0 0 0 2px @featured_color;
+	box-shadow: 0 0 0 2px @featured_color;
+}
+.aella-team figure:hover figcaption,
+.aella-team figure:focus figcaption,
+.aella-team figure:active figcaption {
+	box-shadow: 0 0 100px 50px @featured_color inset;
+}
