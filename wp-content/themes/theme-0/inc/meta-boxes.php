@@ -23,7 +23,7 @@ function custom_meta_boxes() {
 			// Home
 			array (
 					'id' => 'home-metabox',
-					'title' => __ ( 'Home Config', 'mTheme' ),
+					'title' => __ ( 'Setting Section', 'mTheme' ),
 					'desc' => __ ( '', 'mTheme' ),
 					'pages' => array (
 							'page'
@@ -31,124 +31,271 @@ function custom_meta_boxes() {
 					'context' => 'normal',
 					'priority' => 'high',
 					'fields' => array (
-							// Style
-							array (
-									'id' => '__style',
-									'label' => __ ( 'Style', 'mTheme' ),
-									'desc' => __ ( '', 'mTheme' ),
-									'std' => '',
-									'type' => 'select',
-									'choices' => array (
-											array (
-													'value' => '',
-													'label' => __ ( 'Select Style', 'mTheme' ),
-											),
-											array (
-													'value' => 'style_v1',
-													'label' => __ ( 'Style v1', 'mTheme' ),
-											),
-											array (
-													'value' => 'style_v2',
-													'label' => __ ( 'Style v2', 'mTheme' ),
-											),
-											array (
-													'value' => 'style_v3',
-													'label' => __ ( 'Style v3', 'mTheme' ),
-											),
-											array (
-													'value' => 'style_v4',
-													'label' => __ ( 'Style v4', 'mTheme' ),
-											)
-									)
-							), //End Style
 							
-							
-							// Slider
 							array(
-									'id' => '__slider',
-									'label' => __ ( 'Slider', 'mTheme' ),
+									'id' => '__section',
+									'label' => __ ( 'Section', 'mTheme' ),
 									'desc' => __ ( '', 'mTheme' ),
 									'std' => '',
 									'type' => 'list-item',
 									'settings' => array (
-											array (
-													'id' => 'image',
-													'label' => __ ( 'Image', 'mTheme' ),
-													'desc' => '',
+											
+											array(
+													'label' => __ ( 'Show Title', 'mTheme' ),
+													'desc' => __ ( 'Select <code>On</code> if you want to display the Title.', 'mTheme' ),
 													'std' => '',
-													'type' => 'upload',
-													'operator' => 'and'
+													'type' => 'on-off',
+											),
+											
+											// SubTitle
+											array (
+													'id' => 'subtitle',
+													'label' => __ ( 'Sub Title Section', 'mTheme' ),
+													'desc' => __ ( 'Please enter the Sub Title Section.', 'mTheme' ),
+													'type' => 'textarea',
+													'rows' => '3'
+											), //End SubTitle
+											
+											// Select Section Name
+											array (
+													'id' => 'name',
+													'label' => __ ( 'Name', 'mTheme' ),
+													'desc' => __ ( 'Please choose the section for the home page', 'mTheme' ),
+													'std' => '',
+													'type' => 'select',
+													'choices' => array (
+															array (
+																	'value' => '',
+																	'label' => __ ( 'Select Section', 'mTheme' ),
+															),
+															array (
+																	'value' => 'infoUs',
+																	'label' => __ ( 'Our Info', 'mTheme' ),
+															),
+															array (
+																	'value' => 'skills',
+																	'label' => __ ( 'Skills', 'mTheme' ),
+															),
+															array (
+																	'value' => 'portfolio',
+																	'label' => __ ( 'Portfolio', 'mTheme' ),
+															),
+															array (
+																	'value' => 'testimonials',
+																	'label' => __ ( 'Testimonials', 'mTheme' ),
+															),
+															array (
+																	'value' => 'feed',
+																	'label' => __ ( 'Feed', 'mTheme' ),
+															),
+															array (
+																	'value' => 'ourVision',
+																	'label' => __ ( 'Our Vision', 'mTheme' ),
+															),
+															array (
+																	'value' => 'whyTCUs',
+																	'label' => __ ( 'Why to choose us', 'mTheme' ),
+															),
+															array (
+																	'value' => 'awards',
+																	'label' => __ ( 'Awards', 'mTheme' ),
+															),
+															array (
+																	'value' => 'journal',
+																	'label' => __ ( 'Journal', 'mTheme' ),
+															),
+															array (
+																	'value' => 'contact',
+																	'label' => __ ( 'Contact', 'mTheme' ),
+															)
+													)
+											), // And Section Name
+											
+											// Background Section
+											array(
+													'id'          => 'background',
+													'label'       => __( 'Background', 'mTheme' ),
+													'desc'        => __( 'Select the background for the Section.', 'mTheme' ),
+													'std'         => '',
+													'type'        => 'background',
+											), // End Background
+											
+											
+											// Our info
+											array (
+													'id' => 'info_style',
+													'label' => __ ( 'Style', 'mTheme' ),
+													'desc' => __ ( 'Select a style for section Our info.', 'mTheme' ),
+													'std' => 'style_v1',
+													'type' => 'select',
+													'choices' => array (
+															array (
+																	'value' => 'style_v1',
+																	'label' => __ ( 'Style v1', 'mTheme' ),
+															),
+															array (
+																	'value' => 'style_v2',
+																	'label' => __ ( 'Style v2', 'mTheme' ),
+															),
+													),
+													'condition'   => 'name:is(infoUs)',
 											),
 											array (
-													'label' => 'Portfolio',
-													'id' => 'portfolio',
-													'std'         => '',
-													'type'        => 'custom-post-type-select',
-													'section'     => 'option_types',
+													'id' => 'info_content',
+													'label' => __ ( 'Content', 'mTheme' ),
+													'desc' => __ ( 'Please enter content.', 'mTheme' ),
+													'type' => 'textarea',
+													'rows' => '5',
+													'condition'   => 'name:is(infoUs)',
+											), 
+											array (
+													'id' => 'info_image',
+													'label' => __ ( 'Image', 'mTheme' ),
+													'type' => 'upload',
+													'condition'   => 'name:is(infoUs),info_style:is(style_v2)',
+											),
+											// End Our info
+											
+											
+											// Skills
+											array (
+													'id' => 'skills_style',
+													'label' => __ ( 'Style', 'mTheme' ),
+													'desc' => __ ( 'Select a style for section Skills.', 'mTheme' ),
+													'std' => 'style_v1',
+													'type' => 'select',
+													'choices' => array (
+															array (
+																	'value' => 'style_v1',
+																	'label' => __ ( 'Style v1', 'mTheme' ),
+															),
+															array (
+																	'value' => 'style_v2',
+																	'label' => __ ( 'Style v2', 'mTheme' ),
+															),
+													),
+													'condition'   => 'name:is(skills)',
+											),
+											array (
+													'id' => 'skills_detail',
+													'label' => __ ( 'Detail', 'mTheme' ),
+													'desc' => __ ( 'Select detail content for section Skills.', 'mTheme' ),
+													'std' => '',
+													'type' => 'select',
+													'choices' => array (
+															array (
+																	'value' => 'style_v2',
+																	'label' => __ ( 'Style v2', 'mTheme' ),
+															),
+													),
+													'condition'   => 'name:is(skills)',
+											),
+											// End Skills
+											
+											
+											// Portfolio
+											array (
+													'id' => 'portfolio_style',
+													'label' => __ ( 'Style', 'mTheme' ),
+													'desc' => __ ( 'Select a style for section Portfolio.', 'mTheme' ),
+													'std' => 'style_v1',
+													'type' => 'select',
+													'choices' => array (
+															array (
+																	'value' => 'style_v1',
+																	'label' => __ ( 'Style v1', 'mTheme' ),
+															),
+															array (
+																	'value' => 'style_v2',
+																	'label' => __ ( 'Style v2', 'mTheme' ),
+															),
+													),
+													'condition'   => 'name:is(portfolio)',
+											),
+											array (
+													'id' => 'portfolio_post_type',
+													'label' => __ ( 'Portfolio', 'mTheme' ),
+													'desc' => __ ( 'Select post for section Portfolio.', 'mTheme' ),
+													'std' => '',
+													'type' => 'custom-post-type-checkbox',
 													'post_type'   => 'mportfolio',
-													'operator'    => 'and'
-											)
+													'condition'   => 'name:is(portfolio)',
+											),
+											// End Portfolio
+											
+											
+											// Testimonials
+											array (
+													'id' => 'testimonials_post_type',
+													'label' => __ ( 'Testimonials', 'mTheme' ),
+													'desc' => __ ( 'Select post for section Testimonials.', 'mTheme' ),
+													'std' => '',
+													'type' => 'custom-post-type-checkbox',
+													'post_type'   => 'mtestimonial',
+													'condition'   => 'name:is(testimonials)',
+											),
+											// End Testimonials
+											
+											
+											// Our Vision
+											array (
+													'id' => 'ourVision_content',
+													'label' => __ ( 'Content', 'mTheme' ),
+													'desc' => __ ( 'Please enter content.', 'mTheme' ),
+													'type' => 'textarea',
+													'rows' => '5',
+													'condition'   => 'name:is(ourVision)',
+											),
+											array (
+													'id' => 'ourVision_button_name',
+													'label' => __ ( 'Button Name', 'mTheme' ),
+													'desc' => __ ( 'Please enter Button Name.', 'mTheme' ),
+													'type' => 'text',
+													'condition'   => 'name:is(ourVision)',
+											),
+											array (
+													'id' => 'ourVision_button_link',
+													'label' => __ ( 'Button Link', 'mTheme' ),
+													'desc' => __ ( 'Please enter Button Link.', 'mTheme' ),
+													'type' => 'text',
+													'condition'   => 'name:is(ourVision)',
+											),
+											// End Our Vision
+											
+											// Journal
+											array (
+													'id' => 'journal_style',
+													'label' => __ ( 'Style', 'mTheme' ),
+													'desc' => __ ( 'Select a style for section Journal.', 'mTheme' ),
+													'std' => 'style_v1',
+													'type' => 'select',
+													'choices' => array (
+															array (
+																	'value' => 'style_v1',
+																	'label' => __ ( 'Style v1', 'mTheme' ),
+															),
+															array (
+																	'value' => 'style_v2',
+																	'label' => __ ( 'Style v2', 'mTheme' ),
+															),
+													),
+													'condition'   => 'name:is(journal)',
+											),
+											array (
+													'id' => 'journal_post_type',
+													'label' => __ ( 'Post', 'mTheme' ),
+													'desc' => __ ( 'Select post for section Journal.', 'mTheme' ),
+													'std' => '',
+													'type' => 'custom-post-type-checkbox',
+													'post_type'   => 'post',
+													'condition'   => 'name:is(journal)',
+											),
+											// End Journal
 									),
-							) // End Slider
+							)
 					)
 			), // End Home
 			
-			
-			// Sub Title
-			array (
-					'id' => 'subtitle-metabox',
-					'title' => __ ( 'Sub Title', 'mTheme' ),
-					'desc' => __ ( 'Please enter the code embedded here', 'mTheme' ),
-					'pages' => array (
-							'page'
-					),
-					'context' => 'normal',
-					'priority' => 'high',
-					'fields' => array (
-							array (
-									'id' => '__subtitle',
-									'type' => 'textarea',
-									'rows' => '5'
-							)
-					)
-			),
-			
-			// Embed
-			array (
-					'id' => 'embed-metabox',
-					'title' => __ ( 'Embed Code', 'mTheme' ),
-					'desc' => __ ( 'Please enter the code embedded here', 'mTheme' ),
-					'pages' => array (
-							'page' 
-					),
-					'context' => 'normal',
-					'priority' => 'high',
-					'fields' => array (
-							array (
-									'id' => '__embed',
-									'type' => 'textarea',
-									'rows' => '5' 
-							) 
-					) 
-			),
-			
-			// Gallery
-			array (
-					'id' => 'gallery-metabox',
-					'title' => __ ( 'Gallery', 'mTheme' ),
-					'desc' => __ ( 'Upload gallery image', 'mTheme' ),
-					'pages' => array (
-							'mportfolio'
-					),
-					'context' => 'normal',
-					'priority' => 'high',
-					'fields' => array (
-							array (
-									'id' => '__gallery',
-									'type' => 'gallery'
-							)
-					)
-			),
 			
 			
 			/**
@@ -305,7 +452,6 @@ function custom_meta_boxes() {
  */
 function mTheme_admin_scripts($hook) {
 	$metaboxes = array (
-			'embed-metabox' => 'default',
 			'home-metabox' => 'page-templates/page-home.php',
 	);
 

@@ -1,327 +1,234 @@
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-  
-/*
-
-Aella Event Planner
-
-Content Tabel
-+---------------+
-
-Text Color: #757575;
-Featured color: #b3885e;
-*/
-
-/* Background Color */
-
 body,
-.style_v4:not(.home) #navbar ul.nav ul{
+section.testimonials a,
+section.awards figcaption,
+a.authorName,
+section.visitUs i.fa,
+section.single .authorName,
+section.single .meta-nav a,
+.home_v6 footer .social a{
+	color: #5c5c68;
+}
+h1,h2,h3,h4,h5,h6,
+.sectionTitle,
+#primary-navigation .navbar-brand,
+#logo a,
+#primary-navigation .navbar-nav > li > a,
+.readMore a,
+.readMore button,
+a,
+section.testimonials,
+section.feed .feedTitle,
+section .carousel .carousel-control,
+strong,
+.pagination .page-numbers,
+.pagination .prev,
+.pagination .next,
+section.contact_v2 .sectionTitle,
+section.contact.contact_v2,
+.home_v7 section.skills h5,
+.home_v3 section.portfolio .workTitle a,
+.home_v3 .navbar-toggle,
+section.portfolio .loading,
+body.loadpage:after{
+	color: #030320;
+}
+section.ourVision aside,
+section.contact,
+section.visitUs address,
+.home_v5 section.testimonials a{
+	color: #acacb4;
+}
+section.whyTCUs aside,
+section.journal .entry-meta,
+section.journal .entry-meta a,
+section.services aside,
+section.skills .circle strong,
+section.single .entry-meta,
+section.single .entry-meta .cat-links a{
+	color: #a1a1b5;
+}
+section.services h5 i,
+#wrap a:hover,
+.readMore button:hover{
+	color: #ff391f;
+}
+section.visitUs,
+.home_v1 section.skills,
+.home_v1 section.ourVision,
+.home_v1 section.awards,
+.home_v1 section.contact,
+.home_v2 section.journal,
+.home_v7 section.ourVision,
+.home_v5 section.testimonials,
+
+.navbar-nav > li > a::after,
+.readMore.dark a,
+.readMore.dark button,
+.navbar-toggle .icon-bar,
+#filters,
+#portfolioModal button.close span,
+.hvr-rectangle-out:before,
+section.journal_v2 .post-blockquote .entry,
+.home_v3 .portfolio article:nth-child(even),
+.navbar-toggle .icon-bar,
+#cbp-spmenu-s2,
+.post-gallery .carousel .carousel-control,
+section.feed .carousel .carousel-control{
+	background-color: #030320;
+}
+#portfolioModal .modal-header{
+	background-color: hsla(240, 83%, 7%, 0.3);
+}
+.home_v6 #primary-navigation:after{
+	background-color: #eaeaec;
+}
+section.testimonials,
+section.feed .feedTitle,
+.home_v5 section.portfolio,
+.home_v7 section.portfolio,
+.home_v7 section.portfolio_v3 figure::after, 
+.home_v7 section.portfolio_v3 figure::before,
+.home_v7 section.portfolio_v3 figure a::after, 
+.home_v7 section.portfolio_v3 figure a::before,
+.home_v3 .portfolio,
+section.single .meta-nav a,
+.home_v2 section.infoUs,
+.journal_v2 .post,
+section.portfolio .loading,
+body.loadpage:before{
 	background-color: #f5f5f5;
 }
-.home.style_v1,
-.portfolio .nivo-caption,
-.portfolio .nivo-controlNav,
-.pageFixed h2.entry-title,
-.pageFixed,
-.loadPage:before,
-.main-content,
-.aella-tabs ul.nav-tabs > li a,
-.carousel-gallery .carousel-indicators,
-.blog-post article .entry-title small,
-#navbar ul.nav li.hover > ul,
-/*.style_v4 .header,
-.style_v4 .footer, */
-.style_v4 #navbar ul.nav ul,
-#carousel-galleries_v3 .aella-gallery img,
-.home.style_v4 .header,
-.home.style_v4 .footer{
-	background-color: #FFF;
+#filters li button:AFTER,
+.navbar-toggle:hover .icon-bar,
+#filters .navbar-toggle:hover .icon-bar{
+	background-color: #ff391f;
 }
-.portfolio .nivo-caption,
-.portfolio .nivo-controlNav{
-	background-color: rgba(255,255,255, 0.9);
+#primary-navigation .navbar-inner,
+hr,
+section.portfolio .row > [class^="col-"],
+section.journal .authorName,
+section.contact .field input,
+section.contact .field textarea,
+.navbar-header,
+section.portfolio,
+.journal_v1 article,
+section.portfolio_v3 .portfolio-innner,
+section.journal .journal-inner,
+section.feed,
+section,
+section.journal .carousel,
+.navbar-nav > li > a,
+section.single .authorName,
+.entry-comment form .field,
+section.single .entry-content,
+section.list-demo .list-demo-inner,
+section.list-demo .row > [class^="col-"]{
+	border-color: #eaeaec;
 }
-h1.entry-title:AFTER,
-.carousel-gallery .carousel-indicators li,
-.single-member ul.social a{
-	background-color: #c2c2c2
+.home_v7 section.portfolio_v3 figure a::before{
+	 border-color: #f5f5f5 #f5f5f5 transparent;
 }
-#navbar ul.nav > li > a:after,
-.footer ul.social a,
-.footer ul.social:after,
-.single-member h2.entry-title:AFTER,
-#carousel-testimonials h3.entry-title:after,
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
-.author a:before,
-#reply-title:after,
-.style_v4 #navbar .nav > li > a:before{
-	background-color: #282828;
-}
-#navbar ul.nav > li > a:hover:after,
-.footer ul.social a:hover,
-.single-member ul.social a:hover,
-.button button,
-.button a,
-.button input,
-.aella-gallery h2.entry-title,
-.aella-gallery figcaption a,
-.carousel-gallery .carousel-indicators li.active,
-.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
-.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
-.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
-.author a:hover:before,
-.style_v2 .footer ul.social a:hover,
-.style_v3 .footer ul.social a:hover,
-#commentform .form-submit .submit{
-	background-color: #b3885e;
-}
-.aella-gallery h2.entry-title,
-.aella-gallery figcaption a{
-	background-color: rgba(179, 136, 94, 0.8);
-}
-.button button:before,
-.button a:before,
-.button input:hover,
-.button input:focus,
-#commentform .form-submit .submit:hover{
-	background-color: #785c41;
-}
-.mCS-light-3.mCSB_scrollTools .mCSB_draggerRail, 
-.mCS-dark-3.mCSB_scrollTools .mCSB_draggerRail{
-	background-color: #dbdbdb;
-}
-.blog-post .entry-content figcaption:after,
-.navbar-header .navbar-toggle .icon-bar{
-	background-color: #8f8f8f;
-}
-.style_v2 .header,
-.style_v2 #navbar ul.nav ul,
-.style_v2 .footer,
-.style_v3 .header,
-.style_v3 #navbar ul.nav ul,
-.style_v3 .footer,
-.style_v3 #primary-navigation,
-.navbar-header .navbar-toggle{
-	background-color: #0f0f0f;
-}
-.style_v2 #navbar .nav > li > a:before{
-	background-color: #424242;
-}
-.style_v2 .footer ul.social a,
-.style_v3 .footer ul.social a{
-	background-color: #5c5c5c;
+.home_v7 section.portfolio_v3 figure a::after{
+	 border-color: transparent #f5f5f5 #f5f5f5;
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-	.style_v1 #navbar ul.nav ul{
-	    background-color: #f5f5f5;
-	}
-	.home.style_v1 #navbar ul.nav ul{
-	    background-color: #fff;
-	}
+section.whyTCUs aside .list-style,
+.home_v2 section.whyTCUs{
+	border-color: #e1e1e1;
 }
-@media screen and (max-width: 767px) {
-	.style_v1 #primary-navigation{
-		background-color: #f5f5f5;
-	}
-	.carousel-gallery h2.entry-title{
-		background-color: rgba(255, 255, 255, 0.8)
+#primary-navigation.navbarBorder .navbar-inner{
+	border-color: #030320;
+}
+.cbp-spmenu li {
+	border-color: #292941;
+}
+section.single .entry-meta,
+section.single .meta-nav,
+section.single .meta-nav a.next{
+	border-color: #dcdcde;
+}
+
+@media (min-width: 768px) {
+	.home_v6 .navbar-nav > li > a:hover,
+	.home_v6 .navbar-nav > li > a:focus,
+	.home_v6 .navbar-nav > li.active > a{
+		background-color: #030320;
 	}
 }
 
-
-/* Text Color */
-body,
-.style_v2 #navbar ul.nav > li a,
-.style_v3 #navbar ul.nav > li a,
-.style_v1 #navbar ul.nav ul a,
-.style_v1 #navbar a.dropdown,
-.style_v4 #navbar a.dropdown,
-.tags a{
-	color: #757575;
-}
-#navbar ul.nav > li a,
-.portfolio .nivo-controlNav .nivo-control,
-h1.entry-title,
-h1.entry-title a,
-h2.entry-title,
-h2.entry-title a,
-h3.entry-title,
-h3.entry-title a,
-#reply-title,
-.navbar-brand,
-#carousel-galleries_v3 .aella-gallery h2.entry-title a,
-.aella-tabs ul.nav-tabs > li.active a,
-.aella-tabs ul.nav-tabs > li a:hover,
-.author a{
-	color: #282828;
-}
-.footer ul.social a,
-.single-member ul.social a,
-.button button,
-.button a,
-.button a:hover,
-.button input,
-.aella-team .aella-member figcaption a,
-.aella-team .aella-member figcaption a:hover,
-.aella-gallery h2.entry-title a,
-.aella-gallery h2.entry-title a:hover,
-.aella-gallery h2.entry-title small,
-.aella-gallery figcaption a,
-.aella-gallery figcaption a:hover,
-.style_v2 .footer ul.social a:hover,
-.style_v3 .footer ul.social a:hover,
-#commentform .form-submit .submit{
-	color: #FFF;
-}
-.footer .copyright,
-h2.entry-title small,
-h1.entry-title small,
-#carousel-galleries_v3 .aella-gallery h2.entry-title small,
-.aella-tabs ul.nav-tabs > li a,
-.blog-post .entry-content figcaption{
-	color: #8f8f8f;
-}
-.portfolio .nivo-directionNav .nivo-prevNav,
-.portfolio .nivo-directionNav .nivo-nextNav,
-.portfolio #pullDown,
-.carousel .carousel-control,
-.pageFixed .pullUp a,
-.loading,
-.loadPage:after{
-	color: #c2c2c2;
-}
-#carousel-testimonials .entry-content:after,
-#carousel-testimonials .entry-content:before,
-#navbar ul.nav li.hover > ul{
-	color: #e8e8e8;
-}
-.comment-meta .comment-date,
-.comment-meta a,
-.style_v2 .footer .copyright,
-.style_v3 .footer .copyright{
-	color: #5c5c5c;
-}
-.style_v2 .footer ul.social a,
-.style_v3 .footer ul.social a{
-	color: #0f0f0f;
-}
-a,
-a:hover,
-a:focus,
-#navbar ul.nav li a:hover,
-#navbar ul.nav li a:focus,
-#navbar ul.nav li.active > a,
-.style_v2 #navbar ul.nav li a:hover,
-.style_v2 #navbar ul.nav li a:focus,
-.style_v2 #navbar ul.nav li.active > a,
-.style_v3 #navbar ul.nav li a:hover,
-.style_v3 #navbar ul.nav li a:focus,
-.style_v3 #navbar ul.nav li.active > a,
-.style_v4 #navbar ul.nav li a:hover,
-.style_v4 #navbar ul.nav li a:focus,
-.style_v4 #navbar ul.nav li.active > a,
-.portfolio .nivo-directionNav .nivo-prevNav:hover,
-.portfolio .nivo-directionNav .nivo-nextNav:hover,
-.portfolio #pullDown:hover,
-h2.entry-title a:hover,
-h1.entry-title a:hover,
-h3.entry-title a:hover,
-.carousel .carousel-control:hover,
-.pageFixed .pullUp a:hover,
-.author a:hover,
-.filters #searchsubmit:hover,
-.filters #searchsubmit:focus,
-.comment-meta a:hover,
-#carousel-galleries_v3 .aella-gallery h2.entry-title a:hover,
-.tags a:hover{
-	color: #b3885e;
-}
-a:hover,
-a:focus{
-	color: rgba(179, 136, 94, 0.8);
-}
-
-
-/* Border Color */
-body,
-.pageFixed .pageFixed-inner{
-	border-color: #0f0f0f;
-}
-body.home.style_v4{
-	border-color: #FFF;
-}
-body.style_v4{
-	border-color: #f5f5f5;
-}
-.footer ul.social{
-	border-color: #dbdbdb;
-}
-#carousel-testimonials,
-.filters,
-.comment-list .comment-content,
-.entry-social,
-#carousel-galleries_v3,
-.style_v1 #navbar{
-	border-color: #e8e8e8;
-}
-.aella-tabs .tab-content,
-.aella-tabs ul.nav-tabs > li,
-.filters select,
-.filters input,
-#commentform input,
-#commentform textarea,
-.wpcf7-form input,
-.wpcf7-form textarea{
-	border-color: #c2c2c2;
-}
-.button button,
-.button a,
-.button input,
-#commentform input#submit{
-	border-color: #785c41;
-}
-
-
-/* box-shadow */
-.footer ul.social a:after,
-.single-member ul.social a:after{
-	-moz-box-shadow: 0 0 0 2px #b3885e;
-	-webkit-box-shadow: 0 0 0 2px #b3885e;
-	box-shadow: 0 0 0 2px #b3885e;
-}
-#carousel-galleries_v3 .aella-gallery img{
-	-webkit-box-shadow: 0 0 5px #c2c2c2;
-    -moz-box-shadow: 0 0 5px #c2c2c2;
-    box-shadow: 0 0 5px #c2c2c2;
-}
-#carousel-galleries_v3 figure:hover img:nth-child(1),
-#carousel-galleries_v3 figure:hover img:nth-child(2),
-#carousel-galleries_v3 figure:hover img:nth-child(3){
-	-webkit-box-shadow: 2px 2px 5px #c2c2c2;
-    -moz-box-shadow: 2px 2px 5px #c2c2c2;
-	box-shadow: 2px 2px 5px #c2c2c2;
-}
-.aella-team figure:hover figcaption,
-.aella-team figure:focus figcaption,
-.aella-team figure:active figcaption {
-	box-shadow: 0 0 100px 50px #b3885e inset;
-}
-
-
-/* Font Family */
+/* Font */
 body{
-	/*font-family: 'Open Sans', sans-serif;*/
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: 'montserratlight', sans-serif;
 }
-h2.entry-title small,
-h1.entry-title small,
-h3.entry-title small,
-.portfolio .nivo-controlNav .nivo-control,
-#carousel-testimonials .entry-content,
-.blog-post .entry-content figcaption,
-.comment-list .comment-meta,
-.tags{
-	font-family: 'Old Standard TT', serif;
+.navbar-brand,
+#logo a{
+    font-family: "Conv_Gotham-Bold";
+}
+h1,h2,h3,h4,h5,h6,
+.readMore a,
+.readMore button,
+#filters button,
+#filters .navbar-title,
+section.portfolio .loading,
+#portfolioModal .modal-title,
+section.portfolio .workTitle a,
+section.testimonials a,
+section.feed .feedTitle,
+section.ourVision aside,
+section.whyTCUs .subtitle,
+section.awards figcaption,
+section.journal .authorName,
+section.journal_v2 .entry-title,
+section.single .authorName,
+section.single .meta-nav a,
+.comment-reply-title,
+.entry-comment form .field label,
+section.contact .subtitle,
+section.contact .field ::-webkit-input-placeholder,
+section.contact .field ::-moz-placeholder,
+section.contact .field :-ms-input-placeholder,
+section.contact .field :-moz-placeholder,
+section.list-demo .list-demo-title a,
+.pagination .page-numbers,
+.pagination .prev,
+.pagination .next{
+	font-family: 'Montserrat';
+}
+.sectionTitle,
+.home_v4 .headerTitle h1,
+.cbp-spmenu a,
+section.skills .circle strong{
+	font-family: 'Conv_Montserrat-Hairline';
+}
+
+
+@font-face {
+    font-family: 'montserratlight';
+    src: url('../../fonts/Montserrat-Light.eot');
+    src: url('../../fonts/Montserrat-Light.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/Montserrat-Light.woff2') format('woff2'),
+         url('../../fonts/Montserrat-Light.woff') format('woff'),
+         url('../../fonts/Montserrat-Light.ttf') format('truetype'),
+         url('../../fonts/Montserrat-Light.svg#montserratlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'Conv_Montserrat-Hairline';
+	src: url('../../fonts/Montserrat-Hairline.eot');
+	src: url('../../fonts/Montserrat-Hairline.woff') format('woff'), 
+		url('../../fonts/Montserrat-Hairline.ttf') format('truetype'), 
+		url('../../fonts/Montserrat-Hairline.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_Gotham-Bold';
+	src: url('../../fonts/Gotham-Bold.eot');
+	src: url('../../fonts/Gotham-Bold.woff') format('woff'), 
+		 url('../../fonts/Gotham-Bold.ttf') format('truetype'), 
+		 url('../../fonts/Gotham-Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }

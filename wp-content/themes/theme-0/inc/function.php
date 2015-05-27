@@ -45,18 +45,7 @@ function mTheme_body_classes( $classes ) {
 	
 	$style = ot_get_option('style', 'style_v1');
 	
-	$style_home = get_post_meta( get_the_ID(), '__style', true);
-
-	if ( is_page_template('page-templates/page-home.php') && isset($style_home) && !empty($style_home) )
-		$classes[] = $style_home;
-		
-	elseif ( isset($style) )
-		$classes[] = $style;
-		
-	else $classes[] = 'style_v1';
-	
-	if ( is_page_template('page-templates/page-home.php') )
-		$classes[] = 'home';
+		$classes[] = 'class="loadpage"';
 	
 	return $classes;
 }
@@ -175,7 +164,7 @@ function mTheme_pre_get_posts() {
 /**
  * Less
  */
-add_action( 'ot_after_theme_options_save', 'mTheme_include_less' );
+//add_action( 'ot_after_theme_options_save', 'mTheme_include_less' );
 function mTheme_include_less( $options ) {
 	
 	$featured_color = ot_get_option('featured_color');

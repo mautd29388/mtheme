@@ -5,54 +5,66 @@
 
 get_header(); 
 ?>
-<section id="portfolio" class="portfolio">
 
 	<?php
 	// Start the loop.
 	while ( have_posts() ) : the_post(); 
 	
-	$slider = get_post_meta( get_the_ID(), '__slider', true);
+	$sections = get_post_meta( get_the_ID(), '__section', true);
 	
-	if ( !is_array($slider) || count($slider) < 1 )
-		return  false;
+	if ( isset($sections) && is_array($sections) && count($sections) > 0 ) {
+		
+		foreach ( $sections as $section ) {
+			
+			switch ($section['name']) {
+				case infoUs: ?>
+					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?>">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-5">
+									<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+								</div>
+								<div class="col-sm-7">
+									<aside>
+										<p><?php echo $section['info_content']?></p>
+										<div class="readMore">
+											<div class="readMore-innder">
+												<a href="#">Read More <span>&rarr;</span></a>
+											</div>
+										</div>
+									</aside>
+								</div>
+							</div>
+						</div>
+					</section>
+					<?php 
+					break;
+					
+				case ourVision: ?>
+					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?>">
+						<div class="container">
+							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+							<aside>
+								<p><?php echo $section['ourVision_content']; ?></p>
+								<div class="readMore light">
+									<div class="readMore-innder">
+										<a href="<?php echo $section['ourVision_button_link']; ?>"><?php echo $section['ourVision_button_name']; ?> <span>&rarr;</span></a>
+									</div>
+								</div>
+							</aside>
+						</div>
+					</section>
+					<?php 
+					break;
+					
+				case label3:
+					
+					break;
+			}
+		}
+	}
 	
-	?>
-
-	<div class="slider-wrapper">	
-		<div id="portfolio-slider" class="nivoSlider">
-			<?php foreach ( $slider as $s ) { ?>
-			<img alt="" src="<?php echo $s['image']; ?>" title="#nivoCaption-<?php echo $s['portfolio']; ?>">
-			<?php } ?>
-		</div>
-		<?php foreach ( $slider as $s ) { ?>
-		<div id="nivoCaption-<?php echo $s['portfolio']; ?>" class="nivo-html-caption">
-			<h2 class="entry-title">
-				<small><?php echo get_the_date( '', $s['portfolio'] ); ?></small>
-				<a href="<?php echo get_permalink($s['portfolio']); ?>" data-single-id="#single-gallery"><?php echo get_the_title( $s['portfolio'] ); ?></a>
-			</h2>
-		</div>
-		<?php } ?>
-		            
-		<a id="pullDown" class="pullDown" href="<?php echo get_permalink($slider[0]['portfolio']); ?>" data-single-id="#single-gallery" role="button">
-			<i class="fa fa-angle-down"></i>
-		</a>
-	</div>
-	<?php 
 	// End the loop.
 	endwhile;
 	?>
-</section>
-<?php 
-$social = ot_get_option('single_social', '');
-if ( !empty($social) ) {
-?>
-<div id="entry-social">
-	<div class="entry-social clearfix">
-		<?php echo $social; ?>
-	</div>
-</div>
-<?php } ?>
-<section id="single-gallery" class="single-gallery pageFixed">
-				
-</section>
 <?php get_footer(); ?>

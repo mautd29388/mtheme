@@ -4,17 +4,16 @@ class mTheme_Post_Type {
 	
 	public function __construct(){
 		
-		add_action ( 'init', array( $this, 'mTheme_post_type') );
+		add_action ( 'init', array( $this, 'mTheme_post_type_portfolio') );
+		//add_action ( 'init', array( $this, 'mTheme_post_type_our_teams') );
+		add_action ( 'init', array( $this, 'mTheme_post_type_testimonials') );
 	}
 	
+	
 	/**
-	 * Register custom post types
+	 * Post Type: Portfolio
 	 */
-	public function mTheme_post_type() {
-		
-		/**
-		 * Post Type: Portfolio
-		 */
+	public function mTheme_post_type_portfolio() {
 		$labels = array (
 				'name' => _x ( 'Portfolio', 'post type general name', 'mTheme' ),
 				'singular_name' => _x ( 'Portfolio', 'post type singular name', 'mTheme' ),
@@ -27,7 +26,7 @@ class mTheme_Post_Type {
 				'not_found' => __ ( 'No Portfolio found', 'mTheme' ),
 				'not_found_in_trash' => __ ( 'No Portfolio found in Trash', 'mTheme' ),
 				'parent_item_colon' => '',
-				'menu_name' => _x ( 'Portfolio', 'Admin menu name', 'mTheme' ) 
+				'menu_name' => _x ( 'Portfolio', 'Admin menu name', 'mTheme' )
 		);
 		
 		$args = array (
@@ -39,7 +38,7 @@ class mTheme_Post_Type {
 				'show_in_nav_menus' => false,
 				'query_var' => true,
 				'rewrite' => array (
-						'slug' => 'portfolio' 
+						'slug' => 'portfolio'
 				),
 				'capability_type' => 'post',
 				'has_archive' => true,
@@ -50,8 +49,8 @@ class mTheme_Post_Type {
 						'title',
 						'editor',
 						'author',
-						'thumbnail' 
-				) 
+						'thumbnail'
+				)
 		);
 		
 		register_post_type ( 'mportfolio', $args );
@@ -68,26 +67,29 @@ class mTheme_Post_Type {
 				'update_item' => __ ( 'Update Category', 'mTheme' ),
 				'add_new_item' => __ ( 'Add New Category', 'mTheme' ),
 				'new_item_name' => __ ( 'New Category Name', 'mTheme' ),
-				'menu_name' => _x ( 'Categories', 'Admin menu name', 'mTheme' ) 
+				'menu_name' => _x ( 'Categories', 'Admin menu name', 'mTheme' )
 		);
 		
 		register_taxonomy ( 'mportfolio_cat', array (
-				'mportfolio' 
-		), array (
+		'mportfolio'
+				), array (
 				'hierarchical' => true,
 				'labels' => $labels,
 				'show_ui' => true,
 				'show_in_nav_menus' => false,
 				'query_var' => true,
 				'rewrite' => array (
-						'slug' => 'portfolio-cat' 
-				) 
-		) );// End Category
-		// End Portfolio
-		
-		/**
-		 * Post Type: Our Team
-		 */
+				'slug' => 'portfolio-cat'
+						)
+				) );// End Category
+				// End Portfolio
+	}
+	
+	
+	/**
+	 * Post Type: Our Team
+	 */
+	public function mTheme_post_type_our_teams() {
 		$labels = array (
 				'name' => _x ( 'Our Members', 'post type general name', 'mTheme' ),
 				'singular_name' => _x ( 'Our Members', 'post type singular name', 'mTheme' ),
@@ -100,7 +102,7 @@ class mTheme_Post_Type {
 				'not_found' => __ ( 'No Member found', 'mTheme' ),
 				'not_found_in_trash' => __ ( 'No Member found in Trash', 'mTheme' ),
 				'parent_item_colon' => '',
-				'menu_name' => _x ( 'Our Members', 'Admin menu name', 'mTheme' ) 
+				'menu_name' => _x ( 'Our Members', 'Admin menu name', 'mTheme' )
 		);
 		
 		$args = array (
@@ -112,7 +114,7 @@ class mTheme_Post_Type {
 				'show_in_nav_menus' => false,
 				'query_var' => true,
 				'rewrite' => array (
-						'slug' => 'our-members' 
+						'slug' => 'our-members'
 				),
 				'capability_type' => 'post',
 				'has_archive' => true,
@@ -123,8 +125,8 @@ class mTheme_Post_Type {
 						'title',
 						'editor',
 						'author',
-						'thumbnail' 
-				) 
+						'thumbnail'
+				)
 		);
 		
 		register_post_type ( 'mmember', $args );
@@ -140,27 +142,29 @@ class mTheme_Post_Type {
 				'edit_item' => __ ( 'Edit Team', 'mTheme' ),
 				'update_item' => __ ( 'Update Team', 'mTheme' ),
 				'add_new_item' => __ ( 'Add New Team', 'mTheme' ),
-				'new_item_name' => __ ( 'New Team Name', 'mTheme' ) 
+				'new_item_name' => __ ( 'New Team Name', 'mTheme' )
 		);
 		
 		register_taxonomy ( 'our_teams', array (
-				'mmember' 
-		), array (
+		'mmember'
+				), array (
 				'hierarchical' => true,
 				'labels' => $labels,
 				'show_ui' => true,
 				'show_in_nav_menus' => false,
 				'query_var' => true,
 				'rewrite' => array (
-						'slug' => 'our-teams' 
-				) 
-		) ); // End Category
-		// End Team
-		
-		
-		/**
-		 * Post Type: Testimonials
-		 */
+				'slug' => 'our-teams'
+						)
+				) ); // End Category
+				// End Team
+	}
+	
+	
+	/**
+	 * Post Type: Testimonials
+	 */
+	public function mTheme_post_type_testimonials() {
 		$labels = array (
 				'name' => _x ( 'Testimonials', 'post type general name', 'mTheme' ),
 				'singular_name' => _x ( 'Testimonials', 'post type singular name', 'mTheme' ),
@@ -200,6 +204,7 @@ class mTheme_Post_Type {
 		
 		register_post_type ( 'mtestimonial', $args );
 	}
+	
 }
 
 new mTheme_Post_Type();

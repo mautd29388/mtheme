@@ -52,7 +52,7 @@ function customTheme_options() {
 							'id' => 'logo',
 							'label' => __ ( 'Logo', 'mTheme' ),
 							'desc' => __ ( 'Select an image file for your logo.', 'mTheme' ),
-							'std' => trailingslashit(get_template_directory_uri()) . 'assets/imgs/logo.png',
+							'std' => '',
 							'type' => 'upload',
 							'section' => 'general',
 							'rows' => '',
@@ -95,22 +95,6 @@ function customTheme_options() {
 											'label' => __ ( 'Style v4', 'mTheme' ),
 									)
 							)
-					),
-					
-					array(
-							'id'          => 'single_social',
-							'label'       => __( 'Social on Single Page', 'mTheme' ),
-							'desc'        => __( 'The social will be displayed on single page', 'mTheme' ),
-							'std'         => '',
-							'type'        => 'textarea-simple',
-							'section'     => 'general',
-							'rows'        => '',
-							'post_type'   => '',
-							'taxonomy'    => '',
-							'min_max_step'=> '',
-							'class'       => '',
-							'condition'   => '',
-							'operator'    => 'and'
 					),
 					
 					array (
@@ -227,7 +211,7 @@ function customTheme_options() {
 							'id' => 'copyright',
 							'label' => __ ( 'Copyright', 'mTheme' ),
 							'desc' => __ ( 'Enter the text that displays in the copyright bar. HTML markup can be used.', 'mTheme' ),
-							'std' => '&copy; 2015 Aella Events',
+							'std' => '<strong>Folks Theme</strong> &copy; 2015. ALL RIGHTS RESERVED.',
 							'type' => 'textarea-simple',
 							'section' => 'general',
 							'rows' => '10',
