@@ -376,75 +376,10 @@
 		trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
 	}
 	
-	
-	function Polygon(x, y, radius, sides) {
-		  this.x = x;
-		  this.y = y;
-		  this.radius = radius;
-		  this.sides = sides;
-		  this.rotation = 0;
-		}
-
-		Polygon.prototype.draw = function(ctx, width, height) {
-		  var a = ((Math.PI * 2) / this.sides), 
-		      i, n;
-
-		  ctx.save();
-		  ctx.lineJoin = 'round';
-		  ctx.strokeStyle = '#ff9394';
-		  ctx.translate(width / 2, height / 2);
-		  ctx.rotate(this.rotation * Math.PI / 180)
-		  ctx.lineWidth = 1;
-		  ctx.beginPath();
-		  ctx.moveTo(this.radius, 0);
-		  for (i = 0; i < this.sides; i++) {
-		    for (n = 0; n < this.sides; n++) {
-		      ctx.lineTo(this.radius * Math.cos(a * i), this.radius * Math.sin(a * i));
-		      ctx.lineTo(this.radius * Math.cos(a * n), this.radius * Math.sin(a * n));
-		    }
-		  }
-		  ctx.closePath();
-		  ctx.stroke();
-		  ctx.restore();
-		}
-
-		window.onload = function() {
-		  var canvas = document.querySelector('canvas');
-		  
-		  if (!canvas)
-			  return false; 
-		  
-		  var ctx = canvas.getContext('2d'),
-		      W = canvas.width = window.innerWidth,
-		      H = canvas.height = window.innerHeight,
-		      polygon = new Polygon(W / 2, H / 2, 220, 2),
-		      sidesCounter = 2,
-		      increment = 1;
-
-		 var grd = ctx.createLinearGradient(0, 0, 0, W/1.5);
-		  grd.addColorStop(0, "#ff0544");
-		  grd.addColorStop(1, "#ff7b6a");
-
-		  (function drawFrame(){
-		    requestAnimationFrame(drawFrame, canvas);
-		    ctx.fillStyle = grd;
-		    ctx.fillRect(0, 0, W, H);
-		    polygon.draw(ctx, W, H);
-		  }());
-		  
-		  setInterval(function(){
-		    sidesCounter += increment;
-		    if (sidesCounter >= 7) increment *= -1;
-		    if (sidesCounter <= 2) increment *= -1;
-		    TweenMax.to(polygon, 1, {sides: sidesCounter, rotation: sidesCounter * -20, ease: Power3.easeOut});
-		  }, 900);
-			
-		}
-		
-		var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-		showRight = document.getElementById( 'showRight' ),
-		showRightPush = document.getElementById( 'showRightPush' ),
-		body = document.body;;
+	var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+	showRight = document.getElementById( 'showRight' ),
+	showRightPush = document.getElementById( 'showRightPush' ),
+	body = document.body;
 	
 	if ( !showRight || !menuRight ) 
 		return false;

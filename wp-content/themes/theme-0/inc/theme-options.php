@@ -33,17 +33,17 @@ function customTheme_options() {
 							'title' => __ ( 'General', 'mTheme' )
 					),
 					array (
+							'id' => 'home',
+							'title' => __ ( 'Home', 'mTheme' )
+					),
+					array (
 							'id' => 'portfolio',
 							'title' => __ ( 'Portfolio', 'mTheme' )
 					),
 					array (
-							'id' => 'contact',
-							'title' => __ ( 'Contact', 'mTheme' )
-					),
-					array (
 							'id' => 'typography',
 							'title' => __ ( 'Typography', 'mTheme' )
-					)
+					),
 			),
 			'settings' => array (
 					
@@ -55,12 +55,6 @@ function customTheme_options() {
 							'std' => '',
 							'type' => 'upload',
 							'section' => 'general',
-							'rows' => '',
-							'post_type' => '',
-							'taxonomy' => '',
-							'min_max_step' => '',
-							'class' => '',
-							'condition' => '',
 							'operator' => 'and'
 					),
 					array (
@@ -70,12 +64,6 @@ function customTheme_options() {
 							'std' => 'style_v1',
 							'type' => 'select',
 							'section' => 'general',
-							'rows' => '',
-							'post_type' => '',
-							'taxonomy' => '',
-							'min_max_step' => '',
-							'class' => '',
-							'condition' => '',
 							'operator' => 'and',
 							'choices' => array (
 									array (
@@ -104,12 +92,6 @@ function customTheme_options() {
 							'std' => '',
 							'type' => 'on-off',
 							'section' => 'general',
-							'rows' => '',
-							'post_type' => '',
-							'taxonomy' => '',
-							'min_max_step' => '',
-							'class' => '',
-							'condition' => '',
 							'operator' => 'and'
 					),
 					array (
@@ -124,10 +106,6 @@ function customTheme_options() {
 											'desc' => '',
 											'std' => '',
 											'type' => 'select',
-											'rows' => '',
-											'post_type' => '',
-											'taxonomy' => '',
-											'class' => '',
 											'choices' => array (
 													array (
 															'value' => 'fa-facebook',
@@ -172,11 +150,6 @@ function customTheme_options() {
 											'id' => 'url_social',
 											'type' => 'text',
 											'desc' => '',
-											'std' => '',
-											'rows' => '',
-											'post_type' => '',
-											'taxonomy' => '',
-											'class' => ''
 									)
 							),
 							'std' => array(
@@ -201,10 +174,6 @@ function customTheme_options() {
 										'url_social' => '#'
 								)
 							),
-							'rows' => '',
-							'post_type' => '',
-							'taxonomy' => '',
-							'class' => '',
 							'section' => 'general'
 					),
 					array (
@@ -215,13 +184,39 @@ function customTheme_options() {
 							'type' => 'textarea-simple',
 							'section' => 'general',
 							'rows' => '10',
-							'post_type' => '',
-							'taxonomy' => '',
-							'min_max_step' => '',
-							'class' => '',
-							'condition' => '',
 							'operator' => 'and'
 					),
+					
+					
+					// Home
+					array (
+							'label' => __ ( 'Skills', 'mTheme' ),
+							'id' => 'skills',
+							'type' => 'list-item',
+							'desc' => 'Manage your skills.',
+							'section' => 'home',
+							'settings' => array (
+								array(
+										'id'          => 'image',
+										'label'       => __( 'Image', 'mTheme' ),
+										'desc'        => __( "Image used for Style v1", 'mTheme' ),
+										'type'        => 'upload',
+										'operator'    => 'and'
+								),
+								array(
+										'id'          => 'numeric',
+										'label'       => __( 'Numeric', 'mTheme' ),
+										'desc'        => __( 'Numeric use for Style v2', 'mTheme' ),
+										'std'         => '',
+										'type'        => 'numeric-slider',
+										'min_max_step'=> '0,100,1',
+										'operator'    => 'and'
+								),
+							),
+							'operator'    => 'and'
+					),
+					// End Home
+					
 					
 					// Portfolio
 					array (
@@ -231,12 +226,6 @@ function customTheme_options() {
 							'std' => 'layout_1',
 							'type' => 'select',
 							'section' => 'portfolio',
-							'rows' => '',
-							'post_type' => '',
-							'taxonomy' => '',
-							'min_max_step' => '',
-							'class' => '',
-							'condition' => '',
 							'operator' => 'and',
 							'choices' => array (
 									array (
@@ -260,78 +249,18 @@ function customTheme_options() {
 							'std'         => '12',
 							'type'        => 'text',
 							'section'     => 'portfolio',
-							'rows'        => '',
-							'post_type'   => '',
-							'taxonomy'    => '',
-							'min_max_step'=> '',
-							'class'       => '',
-							'condition'   => '',
 							'operator'    => 'and'
 					),
 					// End Portfolio
 						
-					// Contact
-					array(
-							'id'          => 'latlng_contact',
-							'label'       => __( 'Longitude and latitude of the map center', 'mTheme' ),
-							'desc'        => __( 'Get this from <a href="https://maps.google.com/">Google Maps</a>, longitude and latitude separated by comma, like <code>40.724885,-74.00264</code> for the New York.', 'mTheme' ),
-							'std'         => '37.278689, -121.896325',
-							'type'        => 'text',
-							'section'     => 'contact',
-							'rows'        => '',
-							'post_type'   => '',
-							'taxonomy'    => '',
-							'min_max_step'=> '',
-							'class'       => '',
-							'condition'   => '',
-							'operator'    => 'and'
-					),
-					array(
-							'id'          => 'desc_contact',
-							'label'       => __( 'Google Map Locations Description', 'mTheme' ),
-							'desc'        => __( 'It used for the popup window', 'mTheme' ),
-							'std'         => '<p>455 Larkspur Dr<br>San Jose, CA 92926-4601<br><br>+1-510-513-9461</p>',
-							'type'        => 'textarea-simple',
-							'section'     => 'contact',
-							'rows'        => '',
-							'post_type'   => '',
-							'taxonomy'    => '',
-							'min_max_step'=> '',
-							'class'       => '',
-							'condition'   => '',
-							'operator'    => 'and'
-					),
-					// End Contact
-					
 					// Typography
 					array (
 							'id' => 'google_fonts',
 							'label' => __ ( 'Google Fonts', 'mTheme' ),
 							'desc' => sprintf ( __ ( 'The Google Fonts option type will dynamically enqueue any number of Google Web Fonts into the document %1$s. As well, once the option has been saved each font family will automatically be inserted into the %2$s array for the Typography option type. You can further modify the font stack by using the %3$s filter, which is passed the %4$s, %5$s, and %6$s parameters. The %6$s parameter is being passed from %7$s, so it will be the ID of a Typography option type. This will allow you to add additional web safe fonts to individual font families on an as-need basis.', 'mTheme' ), '<code>HEAD</code>', '<code>font-family</code>', '<code>ot_google_font_stack</code>', '<code>$font_stack</code>', '<code>$family</code>', '<code>$field_id</code>', '<code>ot_recognized_font_families</code>' ),
-							'std' => array (
-									array (
-											'family' => 'opensans',
-											'variants' => array (
-													'300',
-													'300italic',
-													'regular',
-													'italic',
-													'600',
-													'600italic'
-											),
-											'subsets' => array (
-													'latin'
-											)
-									)
-							),
+							'std' => '',
 							'type' => 'google-fonts',
 							'section' => 'typography',
-							'rows' => '',
-							'post_type' => '',
-							'taxonomy' => '',
-							'min_max_step' => '',
-							'class' => '',
-							'condition' => '',
 							'operator' => 'and'
 					),
 					array (
@@ -341,12 +270,6 @@ function customTheme_options() {
 							'std' => '',
 							'type' => 'typography',
 							'section' => 'typography',
-							'rows' => '',
-							'post_type' => '',
-							'taxonomy' => '',
-							'min_max_step' => '',
-							'class' => '',
-							'condition' => '',
 							'operator' => 'and' 
 					),
 					array (
@@ -356,12 +279,6 @@ function customTheme_options() {
 							'std' => '',
 							'type' => 'colorpicker',
 							'section' => 'typography',
-							'rows' => '',
-							'post_type' => '',
-							'taxonomy' => '',
-							'min_max_step' => '',
-							'class' => '',
-							'condition' => '',
 							'operator' => 'and'
 					)
 					

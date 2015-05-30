@@ -623,23 +623,19 @@ section.portfolio{
 section.portfolio_v4 .portfolio-post{
 	text-align: center;
 }
-.home_v2 section.portfolio,
-.home_v4 section.portfolio{
+section.portfolio.portfolio_v2{
 	padding-bottom: 0;
 	border-width: 0;
+	height: 450px;
 }
-.home_v2 section.portfolio > .row,
-.home_v2 section.portfolio > .row > [class^="col-"],
-.home_v4 section.portfolio > .row,
-.home_v4 section.portfolio > .row > [class^="col-"]{
-	margin: 0;
-	padding: 0;
+section.portfolio.portfolio_v2 .portfolio-post{
+	float: left;
 }
-/*
-.home_v6 section.portfolio .row > [class^='col-']{
-    -webkit-transition: none;
-    transition: none;
-}*/
+section.portfolio.portfolio_v2 img{
+	min-width: auto;
+	max-width: none;
+	width: auto;
+}
 #filters{
 	margin-bottom: 80px;
 	line-height: 90px;

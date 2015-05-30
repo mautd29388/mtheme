@@ -45,7 +45,7 @@ function mTheme_body_classes( $classes ) {
 	
 	$style = ot_get_option('style', 'style_v1');
 	
-		$classes[] = 'class="loadpage"';
+		$classes[] = 'loadpage';
 	
 	return $classes;
 }

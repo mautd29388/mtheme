@@ -3,7 +3,7 @@ $footer_social_show = ot_get_option('footer_social_show', 'on');
 $footer_social = ot_get_option('footer_social');
 ?>		
 		
-		</div> <!-- End Main Content -->
+		</div> <!-- End Main Content -->		
 		<footer>
 			<div class="container">
 				<!-- 

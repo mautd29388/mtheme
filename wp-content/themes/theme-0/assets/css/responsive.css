@@ -411,12 +411,10 @@ Content Tabel
 	    line-height: 60px;
 	    margin: 0;
 	}
-	.home_v2 section.portfolio [class^="col-"],
-	.home_v4 section.portfolio [class^="col-"]{
+	section.portfolio.portfolio_v2 [class^="col-"]{
 		width: 100%;
 	}
-	.home_v2 section.portfolio figure img,
-	.home_v4 section.portfolio figure img{
+	section.portfolio.portfolio_v2 figure img{
 		width: 100%;
 		height: auto;
 	}

@@ -184,14 +184,16 @@ section.single .meta-nav a,
 .comment-reply-title,
 .entry-comment form .field label,
 section.contact .subtitle,
-section.contact .field ::-webkit-input-placeholder,
-section.contact .field ::-moz-placeholder,
-section.contact .field :-ms-input-placeholder,
-section.contact .field :-moz-placeholder,
 section.list-demo .list-demo-title a,
 .pagination .page-numbers,
 .pagination .prev,
 .pagination .next{
+	font-family: 'Montserrat';
+}
+section.contact .field ::-webkit-input-placeholder,
+section.contact .field ::-moz-placeholder,
+section.contact .field :-ms-input-placeholder,
+section.contact .field :-moz-placeholder{
 	font-family: 'Montserrat';
 }
 .sectionTitle,

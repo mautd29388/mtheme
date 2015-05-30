@@ -41,6 +41,7 @@ function custom_meta_boxes() {
 									'settings' => array (
 											
 											array(
+													'id' => 'show_title',
 													'label' => __ ( 'Show Title', 'mTheme' ),
 													'desc' => __ ( 'Select <code>On</code> if you want to display the Title.', 'mTheme' ),
 													'std' => '',
@@ -166,25 +167,11 @@ function custom_meta_boxes() {
 													'type' => 'select',
 													'choices' => array (
 															array (
-																	'value' => 'style_v1',
+																	'value' => 'skills_v1',
 																	'label' => __ ( 'Style v1', 'mTheme' ),
 															),
 															array (
-																	'value' => 'style_v2',
-																	'label' => __ ( 'Style v2', 'mTheme' ),
-															),
-													),
-													'condition'   => 'name:is(skills)',
-											),
-											array (
-													'id' => 'skills_detail',
-													'label' => __ ( 'Detail', 'mTheme' ),
-													'desc' => __ ( 'Select detail content for section Skills.', 'mTheme' ),
-													'std' => '',
-													'type' => 'select',
-													'choices' => array (
-															array (
-																	'value' => 'style_v2',
+																	'value' => 'skills_v2',
 																	'label' => __ ( 'Style v2', 'mTheme' ),
 															),
 													),
@@ -202,15 +189,34 @@ function custom_meta_boxes() {
 													'type' => 'select',
 													'choices' => array (
 															array (
-																	'value' => 'style_v1',
+																	'value' => 'portfolio_v1',
 																	'label' => __ ( 'Style v1', 'mTheme' ),
 															),
 															array (
-																	'value' => 'style_v2',
+																	'value' => 'portfolio_v2',
 																	'label' => __ ( 'Style v2', 'mTheme' ),
+															),
+															array (
+																	'value' => 'portfolio_v3',
+																	'label' => __ ( 'Style v3', 'mTheme' ),
 															),
 													),
 													'condition'   => 'name:is(portfolio)',
+											),
+											array(
+													'id' => 'portfolio_show_button',
+													'label' => __ ( 'Show Button', 'mTheme' ),
+													'desc' => __ ( 'Select <code>On</code> if you want to display the Button.', 'mTheme' ),
+													'std' => '',
+													'type' => 'on-off',
+													'condition'   => 'name:is(portfolio)',
+											),
+											array (
+													'id' => 'portfolio_button_name',
+													'label' => __ ( 'Button Name', 'mTheme' ),
+													'desc' => __ ( 'Please enter Button Name.', 'mTheme' ),
+													'type' => 'text',
+													'condition'   => 'name:is(portfolio),portfolio_show_button:is(on)',
 											),
 											array (
 													'id' => 'portfolio_post_type',
