@@ -215,6 +215,23 @@ function customTheme_options() {
 							),
 							'operator'    => 'and'
 					),
+					array (
+							'label' => __ ( 'Awards', 'mTheme' ),
+							'id' => 'awards',
+							'type' => 'list-item',
+							'desc' => 'Manage your Awards.',
+							'section' => 'home',
+							'settings' => array (
+									array(
+											'id'          => 'image',
+											'label'       => __( 'Image', 'mTheme' ),
+											'desc'        => __( '', 'mTheme' ),
+											'type'        => 'upload',
+											'operator'    => 'and'
+									),
+							),
+							'operator'    => 'and'
+					),
 					// End Home
 					
 					

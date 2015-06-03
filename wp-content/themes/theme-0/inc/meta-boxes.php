@@ -242,6 +242,33 @@ function custom_meta_boxes() {
 											),
 											// End Testimonials
 											
+											// Feed
+											array (
+													'id' => 'dribbble',
+													'label' => __ ( 'Dribbble ID', 'mTheme' ),
+													'std' => 'MunFactory',
+													'desc' => __ ( 'Please enter Dribbble ID.', 'mTheme' ),
+													'type' => 'text',
+													'condition'   => 'name:is(feed)',
+											),
+											array (
+													'id' => 'twitter',
+													'label' => __ ( 'Twitter', 'mTheme' ),
+													'desc' => __ ( 'Please enter content.', 'mTheme' ),
+													'std' => '<a class="twitter-timeline"  href="https://twitter.com/TwitterDev" data-widget-id="578742270393892864" data-tweet-limit="2" data-border-color= "#eaeaec" data-chrome="noheader nofooter transparent" >Tweets by @TwitterDev</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>',
+													'type' => 'textarea',
+													'rows' => '3',
+													'condition'   => 'name:is(feed)',
+											),
+											array (
+													'id' => 'instagram',
+													'label' => __ ( 'Instagram Name', 'mTheme' ),
+													'std' => 'bergdorfs',
+													'desc' => __ ( 'Please enter Instagram Tag Name.', 'mTheme' ),
+													'type' => 'text',
+													'condition'   => 'name:is(feed)',
+											),
+											// And Feed
 											
 											// Our Vision
 											array (
@@ -267,6 +294,38 @@ function custom_meta_boxes() {
 													'condition'   => 'name:is(ourVision)',
 											),
 											// End Our Vision
+											
+											// Why to choose us
+											array (
+													'id' => 'whyTCUs_content',
+													'label' => __ ( 'Content', 'mTheme' ),
+													'desc' => __ ( '', 'mTheme' ),
+													'type' => 'textarea',
+													'rows' => '8',
+													'condition'   => 'name:is(whyTCUs)',
+											),
+											array (
+													'id' => 'whyTCUs_button_name',
+													'label' => __ ( 'Button Name', 'mTheme' ),
+													'desc' => __ ( 'Please enter Button Name.', 'mTheme' ),
+													'type' => 'text',
+													'condition'   => 'name:is(whyTCUs)',
+											),
+											array (
+													'id' => 'whyTCUs_button_link',
+													'label' => __ ( 'Button Link', 'mTheme' ),
+													'desc' => __ ( 'Please enter Button Link.', 'mTheme' ),
+													'type' => 'text',
+													'std' => '#',
+													'condition'   => 'name:is(whyTCUs)',
+											),
+											array (
+													'id' => 'whyTCUs_image',
+													'label' => __ ( 'Image', 'mTheme' ),
+													'type' => 'upload',
+													'condition'   => 'name:is(whyTCUs)',
+											),
+											// End Why to choose us
 											
 											// Journal
 											array (
@@ -297,6 +356,17 @@ function custom_meta_boxes() {
 													'condition'   => 'name:is(journal)',
 											),
 											// End Journal
+											
+											// Contact
+											array (
+													'id' => 'contact_content',
+													'label' => __ ( 'Content', 'mTheme' ),
+													'desc' => __ ( '', 'mTheme' ),
+													'type' => 'textarea',
+													'rows' => '5',
+													'condition'   => 'name:is(contact)',
+											),
+											// Contact
 									),
 							)
 					)
@@ -420,10 +490,10 @@ function custom_meta_boxes() {
 			/**
 			 * Testimonials
 			 */ 
-			// Address			
+			// Url			
 			array (
-					'id' => 'address-metabox',
-					'title' => __ ( 'Address', 'mTheme' ),
+					'id' => 'url-metabox',
+					'title' => __ ( 'Url', 'mTheme' ),
 					'desc' => __ ( 'Please enter the code embedded here', 'mTheme' ),
 					'pages' => array (
 							'mtestimonial',
@@ -432,8 +502,9 @@ function custom_meta_boxes() {
 					'priority' => 'high',
 					'fields' => array (
 							array (
-									'id' => '__address',
+									'id' => '__url',
 									'type' => 'text',
+									'std' => '#'
 							)
 					)
 			),

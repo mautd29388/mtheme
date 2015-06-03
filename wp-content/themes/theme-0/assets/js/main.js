@@ -10,28 +10,31 @@
 			});
 			
 			// Dribbble
-			$.jribbble.getShotsByPlayerId('MunFactory', function (work) {
-					var $i = 0,
-						$active = '';
-					$.each(work.shots, function (x, shot) {
-						$i++;
-						if ($i == 1 ) {
-							$active = ' active';
+			var $carousel_dribbble = $('#carousel-dribbble'),
+				$instafeed = $('#instafeed');
+				
+			if ( $carousel_dribbble.length> 0 && $carousel_dribbble.attr('data-dribbble') ) {
+				$.jribbble.getShotsByPlayerId($carousel_dribbble.attr('data-dribbble'), function (work) {
+						var $i = 0,
+							$active = '';
+						$.each(work.shots, function (x, shot) {
+							$i++;
+							if ($i == 1 ) {
+								$active = ' active';
+								
+							} else $active = '';
 							
-						} else $active = '';
-						
-						$('#carousel-dribbble .carousel-inner').append('<div class="item'+ $active +'"><a href="' + shot.url + '"><img src="' + shot.image_400_url + '" alt="' + shot.title + '"></a></div> ');
-					});
-				}, {page: 1, per_page: 5}
-			);
+							$('#carousel-dribbble .carousel-inner').append('<div class="item'+ $active +'"><a href="' + shot.url + '"><img src="' + shot.image_400_url + '" alt="' + shot.title + '"></a></div> ');
+						});
+					}, {page: 1, per_page: 5}
+				);
+			}
 			
 			/* Instagram Feed */
-			var $instafeed = $('#instafeed');
-			
-			if ( $instafeed.length > 0 ) {
+			if ( $instafeed.length > 0 && $instafeed.attr('data-instagram')) {
 				var feed = new Instafeed({
 					get: 'tagged',
-					tagName: 'bergdorfs',
+					tagName: $instafeed.attr('data-instagram'),
 					limit: 12,
 					clientId: 'e7661456ccb5467495d5ee3ea8d7d887',
 					template: '<div class="instagram_thumbnail"><a href="{{link}}"><img src="{{image}}" /></a></div>'

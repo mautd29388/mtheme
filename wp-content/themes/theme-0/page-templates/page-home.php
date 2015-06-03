@@ -23,6 +23,9 @@ get_header();
 							<div class="row">
 								<div class="col-sm-5">
 									<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+									<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+									<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+									<?php } ?>
 								</div>
 								<div class="col-sm-7">
 									<aside>
@@ -45,6 +48,9 @@ get_header();
 						<div class="container">
 							<?php if ( $section['show_title'] != 'off' ) { ?>
 							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+							<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+							<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+							<?php } ?>
 							<?php } ?>
 							<div class="row">
 								<?php 
@@ -79,6 +85,9 @@ get_header();
 						<?php if ( $section['show_title'] != 'off' ) { ?>
 						<div class="container">
 							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+							<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+							<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+							<?php } ?>
 						</div>
 						<?php } ?>
 						
@@ -153,24 +162,109 @@ get_header();
 					</section>
 					<?php 
 					break;
+
+				case testimonials: ?>
+					<?php 
+					$testimonials = $section['testimonials_post_type'];
 					
-				case test: ?>
+					if ( !isset($testimonials) || !is_array($testimonials) || count($testimonials) < 1 ) return false;
+					?>
 					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?> <?php echo $section['skills_style']; ?>">
 						<div class="container">
 							<?php if ( $section['show_title'] != 'off' ) { ?>
 							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
 							<?php } ?>
-							<div class="row">
+							<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+							<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+							<?php } ?>
+							<div id="carousel-testimonials" class="carousel slide" data-ride="carousel" data-interval="false">
+		
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<?php $i= 0; 
+									foreach ($testimonials as $testimonial_id ) { 
+										$i++;
+										$testimonial = get_post($testimonial_id);
+										$url = get_post_meta($testimonial_id, 'mtestimonial', true);
+										if ( !isset($url) || empty($url) ) $url = '#';
+										?>
+										<div class="item <?php echo $i == 1 ? 'active' : ''; ?>">
+											<aside>
+												<div><?php echo $testimonial->post_content; ?></div>
+												<a href="<?php  echo $url; ?>"><?php echo get_the_title($testimonial); ?></a>
+											</aside>
+										</div>
+									<?php } ?>
+								</div>
+		
+								<!-- Controls -->
+								<a class="left carousel-control" href="#carousel-testimonials"
+									role="button" data-slide="prev"> <span class="fa  fa-angle-left"></span>
+								</a> <a class="right carousel-control" href="#carousel-testimonials"
+									role="button" data-slide="next"> <span class="fa fa-angle-right"></span>
+								</a>
 							</div>
 						</div>
 					</section>
 					<?php 
 					break;
-												
+									
+				case feed: ?>
+					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?>">
+						<?php 
+						$dribbble = $section['dribbble'];
+						$twitter = $section['twitter'];
+						$instagram = $section['instagram'];
+						?>
+						<div class="container">
+							<?php if ( $section['show_title'] != 'off' ) { ?>
+							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+							<?php } ?>
+							<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+							<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+							<?php } ?>
+							<div class="row">
+								<div class="col-sm-4">
+									<h5 class="feedTitle">dribbble</h5>
+									<div id="carousel-dribbble" class="carousel slide" data-ride="carousel" data-interval="5000" <?php echo isset($dribbble) && !empty($dribbble) ? 'data-dribbble="' . $dribbble . '"' : ''; ?>>
+				
+										<div class="carousel-inner" role="listbox">
+											
+										</div>
+				
+										<a class="left carousel-control" href="#carousel-dribbble"
+											role="button" data-slide="prev"> <span class="fa  fa-angle-left"></span>
+										</a> <a class="right carousel-control" href="#carousel-dribbble"
+											role="button" data-slide="next"> <span class="fa fa-angle-right"></span>
+										</a>
+									</div>
+								</div>
+								
+								<div class="col-sm-4">
+									<h5 class="feedTitle">Twitter</h5>
+									<aside>
+										<?php echo isset($twitter) ? $twitter : ''; ?>
+									</aside>
+								</div>
+								
+								<div class="col-sm-4">
+									<h5 class="feedTitle">Instagram</h5>
+									<div id="instafeed"  <?php echo isset($instagram) && !empty($instagram) ? 'data-instagram="' . $instagram . '"' : ''; ?>></div>
+								</div>
+								
+							</div>
+						</div>
+					</section>
+					<?php 
+					break;
+										
 				case ourVision: ?>
 					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?>">
 						<div class="container">
 							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+							<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+							<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+							<?php } ?>
 							<aside>
 								<p><?php echo $section['ourVision_content']; ?></p>
 								<div class="readMore light">
@@ -184,9 +278,110 @@ get_header();
 					<?php 
 					break;
 					
-				case label3:
-					
+				case whyTCUs: ?>
+					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?>">
+						<div class="container">
+							<?php if ( $section['show_title'] != 'off' ) { ?>
+							<div class="row">
+								<div class="col-md-8">
+									<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+									<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+									<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+									<?php } ?>
+								</div>
+							</div>
+							<?php } ?>
+							<div class="row">
+								<?php if ( isset($section['whyTCUs_image']) && !empty($section['whyTCUs_image']) ) { ?>
+								<div class="col-md-6">
+									<figure>
+										<img alt="" src="<?php echo $section['whyTCUs_image']; ?>">
+									</figure>
+								</div>
+								<?php } ?>
+								<?php if ( isset($section['whyTCUs_content']) && !empty($section['whyTCUs_content']) ) { ?>
+								<div class="col-md-6">
+									<?php echo $section['whyTCUs_content']; ?>
+								</div>
+								<?php } ?>
+							</div>
+							<?php if ( isset($section['whyTCUs_button_name']) && !empty($section['whyTCUs_button_name']) ) { ?>
+							<div class="readMore dark">
+								<div class="readMore-innder">
+									<a href="<?php echo $section['whyTCUs_button_link']; ?>"><?php echo $section['whyTCUs_button_name']; ?> <span>→</span></a>
+								</div>
+							</div>
+							<?php } ?>
+						</div>
+					</section>
+					<?php 
 					break;
+
+				case awards: ?>
+					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?>">
+						<div class="container">
+							<?php if ( $section['show_title'] != 'off' ) { ?>
+							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+							<?php } ?>
+							<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+							<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+							<?php } ?>
+							
+							<div class="row">
+								<?php 
+								$awards = ot_get_option('awards');
+								
+								if ( isset($awards) && is_array($awards) && count($awards) >0 ) {
+									foreach ( $awards as $award ) { ?>
+										<div class="col-sm-4">
+											<figure>
+												<img alt="" src="<?php echo $award['image']; ?>">
+												<figcaption><?php echo $award['title']; ?></figcaption>
+											</figure>
+										</div>
+										<?php 
+									} 
+								}
+								?>
+							</div>
+						</div>
+					</section>
+					<?php 
+					break;
+					
+				case contact: ?>
+					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?>">
+						<div class="container">
+							<?php if ( $section['show_title'] != 'off' ) { ?>
+							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+							<?php } ?>
+							<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+							<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+							<?php } ?>
+							<?php if ( isset($section['contact_content']) && !empty($section['contact_content']) ) {
+								echo do_shortcode($section['contact_content']);
+							} ?>
+						</div>
+					</section>
+					<?php 
+					break;
+					
+				case test: ?>
+					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?> <?php echo $section['skills_style']; ?>">
+						<div class="container">
+							<?php if ( $section['show_title'] != 'off' ) { ?>
+							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+							<?php } ?>
+							<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+							<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+							<?php } ?>
+							<div class="row">
+							</div>
+						</div>
+					</section>
+					<?php 
+					break;
+					
 			}
 		}
 	}
