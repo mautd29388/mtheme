@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Home Template
+ * Template Name: One Page
  */
 
 get_header(); 
@@ -348,7 +348,68 @@ get_header();
 					</section>
 					<?php 
 					break;
-					
+				
+			case journal: ?>
+					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?>">
+						<div class="container">
+							<?php if ( $section['show_title'] != 'off' ) { ?>
+							<h2 class="sectionTitle"><?php echo $section['title']; ?></h2>
+							<?php } ?>
+							<?php if ( isset($section['subtitle']) && !empty($section['subtitle']) ) { ?>
+							<div class="subtitle"><?php echo $section['subtitle']; ?></div>
+							<?php } ?>
+							<div class="readMore dark pull-right">
+								<div class="readMore-innder">
+									<a href="#">View all projects <span>&rarr;</span></a>
+								</div>
+							</div>
+							<?php 
+							if ( isset($section['journal_post_type']) && 
+								is_array($section['journal_post_type']) && 
+								count($section['journal_post_type']) ) {
+								
+								$i = 0;
+							?>
+							<div id="carousel-journal" class="carousel slide"
+								data-ride="carousel" data-interval="false">
+		
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<?php 
+									foreach ( $section['journal_post_type'] as $post_id ) {
+										$i++;
+										$post = get_post($post_id);
+										?>
+									<div class="item <?php echo $i == 1 ? 'active' : ''; ?>">
+										<article>
+											<div class="author">
+												<a href="<?php echo get_author_posts_url( $post->post_author, get_the_author_meta( 'user_nicename' , $post->post_author ) ); ?>" class="avatar"><?php the_author_meta( 'avatar' , $post->post_author ); ?></a> <a href="<?php echo get_author_posts_url( $post->post_author, get_the_author_meta( 'user_nicename' , $post->post_author ) ); ?>" class="authorName">by <?php the_author_meta( 'user_nicename' , $post->post_author ); ?></a>
+											</div>
+											<h3 class="postTitle">
+												<a href="<?php echo get_permalink($post_id); ?>"><?php echo get_the_title($post_id); ?></a>
+											</h3>
+											<div class="entry-meta">
+												In <?php the_category('', '', $post_id); ?> /
+												<span class="date"><?php echo get_the_date('', $post_id); ?></span>
+											</div>
+										</article>
+									</div>
+									<?php } ?>
+								</div>
+		
+								<!-- Controls -->
+								<a class="left carousel-control" href="#carousel-journal"
+									role="button" data-slide="prev"> <span class="fa  fa-angle-left"></span>
+								</a> <a class="right carousel-control" href="#carousel-journal"
+									role="button" data-slide="next"> <span class="fa fa-angle-right"></span>
+								</a>
+							</div>
+							<?php } ?>
+						</div>
+					</section>
+					<?php 
+					break;
+										
 				case contact: ?>
 					<section id="<?php echo $section['name']; ?>" class="<?php echo $section['name']; ?>">
 						<div class="container">

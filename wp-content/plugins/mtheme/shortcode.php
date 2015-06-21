@@ -7,6 +7,7 @@ class mTheme_Sshortcode {
 		
 		add_shortcode('mTheme_team', array(	$this, 'mTheme_team_shortcode'));
 		add_shortcode('mTheme_portfolio', array(	$this, 'mTheme_portfolio_shortcode'));
+		add_shortcode('mTheme_classes', array(	$this, 'mTheme_classes_shortcode'));
 		add_shortcode('mTheme_testimonials', array( $this, 'mTheme_testimonials_shortcode') );
 		
 		add_shortcode('mTheme_tabs', array( $this, 'mTheme_tabs_shortcode' ));
@@ -66,38 +67,60 @@ class mTheme_Sshortcode {
 	
 		global $portfolio;
 		
-		if ( isset($atts) && is_array($atts) && count($atts) > 0 )
-			extract($atts);
+		$atts = shortcode_atts( array(
+					'style' => ot_get_option('portfolio_style', 'style_v1'),
+					'posts_per_page' => ot_get_option('portfolio_posts_per_page', 12),
+				),
+				$atts );
 		
-		if ( !isset($layout) || empty($layout) ) 
-			$layout = ot_get_option('portfolio_layout', 'layout_1');
 		
-		$portfolio['layout'] = $layout;
+		$portfolio['style'] = $atts['style'];
 		
-		$posts_per_page = ot_get_option('portfolio_items', 12);
 		$args = array(
 				'post_type' => 'mportfolio',
-				'posts_per_page' => $posts_per_page,
+				'posts_per_page' => $atts['posts_per_page'],
 		);
 	
-		if ( $layout == 'layout_3' ) {
-			
-			if(is_front_page()) {
-				$paged = (get_query_var('page')) ? get_query_var('page') : 1;
-			} else {
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-			}
-			
-			$args = array_merge( $args, array( 'paged' => $paged ) );
-		}
 			
 		$portfolio['query'] = new WP_Query( $args );
 	
-		$portfolio['next_posts'] = get_post_type_archive_pagenum_link( 'mportfolio', $portfolio['query']->max_num_pages, 2);
+		$portfolio['next_posts'] = mTheme_get_post_type_archive_pagenum_link( 'mportfolio', $portfolio['query']->max_num_pages, 2);
 		
 		ob_start();
 	
-		get_template_part('contents/content', 'portfolio');
+		get_template_part('contents/portfolio', '');
+	
+		$html = ob_get_contents();
+	
+		ob_end_clean();
+	
+		wp_reset_postdata();
+	
+		return $html;
+	}
+	
+	
+	/**
+	 * Portfolio
+	 */
+	public function mTheme_classes_shortcode( $atts ){
+	
+		global $classes;
+	
+		$atts = shortcode_atts( array(
+		), $atts );
+	
+		$args = array(
+				'post_type' => 'mclasses',
+				'posts_per_page' => $atts['posts_per_page'],
+		);
+	
+			
+		$classes['query'] = new WP_Query( $args );
+	
+		ob_start();
+	
+		get_template_part('contents/classes', '');
 	
 		$html = ob_get_contents();
 	

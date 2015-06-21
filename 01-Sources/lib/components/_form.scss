@@ -1,0 +1,45 @@
+.default-input {
+	input, select {
+		border-radius: 0px;
+		color: #555555;
+	}
+
+	select option {
+			color: #000;
+		}	
+}
+
+select.form-control {
+	color: #555555;
+}
+
+.form-group {
+	color: #555555;
+}
+
+.footer {
+	.default-input {
+	color: #e6e6e6;
+	padding: 7px 20px;
+	padding-bottom: 9px;
+	margin-left: -5px;
+	font-size: 13px;
+	margin-bottom: 20px;
+     }
+
+    input {
+		width: 125px;
+		height: 35px;
+		border-radius: 0;
+    }
+}
+
+.input-custom {
+	height: 36px;
+	border: 1px solid #e6e6e6;
+	color: #b3b3b3;
+}
+
+.form-inline .form-group {
+	margin-bottom: 10px;
+}

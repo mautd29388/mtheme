@@ -1,0 +1,30 @@
+.alert-f {
+	width: 100%;
+	color: #000;
+	margin-top: 45px;
+	margin-bottom: 45px;
+	font-weight: bold;
+	position: relative;
+	.inner-alert {
+		padding: 10px 22px;
+	}
+	.close {
+		position: absolute;
+		top: 15px;
+		right: 10px;
+		font-size: 15px;
+		color: #ccc;
+	}
+}
+
+.alert-info-f {
+	background: #ffea03;
+}
+
+.alert-success-f {
+	background: #00D35B;
+}
+
+.alert-danger-f {
+	background: #DE5E50;
+}

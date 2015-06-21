@@ -34,7 +34,7 @@ function customTheme_options() {
 					),
 					array (
 							'id' => 'home',
-							'title' => __ ( 'Home', 'mTheme' )
+							'title' => __ ( 'One Page', 'mTheme' )
 					),
 					array (
 							'id' => 'portfolio',

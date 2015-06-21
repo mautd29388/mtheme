@@ -1,0 +1,238 @@
+@media all and (min-width: 1024px) {
+	a.block {
+		display: inline;
+	}
+} 
+
+@media all and (min-width: 990px) {
+	.logo {
+		h1 {
+			line-height: 0.9;
+		}
+	}
+	.header-holder {
+		.main-navigation {
+			display: block;
+			width: 100%;
+			text-align: right;
+		}
+		.open-navigation {
+			display: none;
+		}
+		ul { 
+			padding-left: 0;
+			margin-bottom: 0;
+			list-style: none;
+			margin-top: 0;
+			li { 
+				position: relative;
+				display: inline-block;
+				text-align: center;
+				padding: 22px 30px;
+				border-left: 1px solid #eee;
+				&.bread {
+					border-left: none;
+					float: left;
+					padding-right: 27px;
+					padding-left: 0;
+					display: inline-block;
+				}
+				&.active:before {
+					position: absolute;
+					content: '';
+					background: $primary-theme;
+					height: 5px;
+					width: 100%;
+					top: 95%;
+					left: 0;
+				}
+				a {
+					border-bottom: none;
+					display: block;
+				}
+			}
+		}
+
+	}
+
+	.navigation-holder .inner-top-bottom-10 {
+		padding: 0;
+	}
+
+}
+
+@media all and (min-width: 768px) {
+	ul.boxed-navigation {
+		li a {
+			font-size: 30px;
+		}
+	}
+
+}
+
+@media all and (max-width: 768px) {
+
+	.sm-center {
+		text-align: center !important;
+	}
+
+	.header-holder {
+		position: relative;
+	}	
+	.product-sorting {
+		select {
+			float:right;
+			width: 160px;
+			border: 1px solid #ccc;
+			padding: 5px;
+		}
+	}
+	.cart-product {
+		cursor: pointer;
+		position: relative;
+		background: #f7f7f7;
+		opacity: 1;
+		width: 100%;
+		visibility: visible;
+		display: none;
+		transition: all 0.15s ease-in-out;
+		h4, h5 {
+			display: block;
+			text-align: left;
+		}
+	}
+	.product-info-horizontal.pull-down-90 {
+		margin-top: 0;
+		border-left: none;
+	}
+
+
+	.horizontal-timetable {
+		display: block;
+		li {
+			display: block;
+			background: rgba(0, 0, 0, 0.88);
+		}
+	}
+
+	.inner-60-sm {
+		padding: 60px;
+	}
+
+	.product-info-horizontal.pull-down-70 {
+		margin-top: 0;
+	}
+
+	.tab-navigation {
+		ul {
+			display: block;
+			width: 100%;
+			li {
+				display: block;
+			  }
+		}
+	}
+	.vertical-border.product-info-horizontal {
+		border: none;
+	}
+
+	.center-sm {
+		text-align: center;
+	}
+
+	.pull-down-10-sm {
+		margin-top: 10px;
+	}
+
+	.push-down-10-sm {
+		margin-bottom: 10px;
+	}
+
+	.classes-banner, .trainers-banner, .blog {
+		h1 {
+			font-size: 60px;
+		}	
+	}
+
+}
+
+@media all and (max-width: 400px) {
+
+	.inner-10-xs {
+		padding: 10px;
+	}
+
+	.center-xs {
+		text-align: center;
+	}
+
+	.pull-down-10-xs {
+		margin-top: 10px;
+	}
+
+	.push-down-10-xs {
+		margin-bottom: 10px;
+	}
+
+	ul.boxed-navigation	{
+		display: block;
+		margin-top: 63px;
+		li {
+			display: block;
+			border: 2px solid #E6E6E6;
+			border-bottom: none;
+		}
+		li:last-of-type {
+			border-left: 2px solid #E6E6E6;
+			border-bottom: 2px solid #E6E6E6;
+		}	
+		li:first-of-type {
+			border-right: 2px solid #E6E6E6;
+		}
+	}
+	.store-nav {
+		ul {
+			display: block;
+			width: 100%;
+			padding-left: 0;
+			text-align: center;
+		}
+		li {
+			display: block;
+		}
+	}
+	.pull-up-148.upper-content {
+		margin-top: 0;
+	}
+
+	.search-class {
+		.inline-block {
+			display: block;
+		}
+		a{
+			margin-left: 0px;
+			margin-right: 0px;
+			display: block;
+			width: 100%;
+			text-align: center;
+		}
+		select {
+			width: 100%;
+			display: block;
+			margin-top: 5px;
+			margin-left: 0;
+			margin-bottom: 10px;
+			float: left;
+		}
+	}
+
+	.product-info-horizontal.pull-down-70 {
+		margin-top: 0;
+	}
+
+}
+
+
+
+
+
