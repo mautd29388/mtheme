@@ -36,6 +36,28 @@ function custom_meta_boxes() {
 	$my_meta_box = array (
 			
 			/**
+			 * Page
+			 * */
+			
+			array (
+					'id' => 'image-banner-metabox',
+					'title' => __ ( 'Image Banner', 'm_theme' ),
+					'desc' => __ ( 'Select the image for the Banner.', 'm_theme' ),
+					'pages' => array (
+							'page'
+					),
+					'context' => 'normal',
+					'priority' => 'high',
+					'fields' => array (
+							array(
+									'id'          => '__background',
+									'type'        => 'background',
+							), 
+					)
+			),
+			
+			
+			/**
 			 * Metabox Trainers
 			 */
 			// Social
@@ -152,6 +174,13 @@ function custom_meta_boxes() {
 									'type' => 'date-time-picker'
 							),
 							array (
+									'id' => '__end',
+									'label' => __ ( 'End Date', 'mTheme' ),
+									'desc' => __ ( '', 'mTheme' ),
+									'type' => 'date-time-picker',
+									'condition'   => '__start:not()',
+							),
+							array (
 									'id' => '__repeat',
 									'label' => __ ( 'Repeat', 'mTheme' ),
 									'desc' => __ ( '', 'mTheme' ),
@@ -170,7 +199,8 @@ function custom_meta_boxes() {
 													'value'       => 'customize',
 													'label'       => __( 'Customize', 'mTheme' ),
 											)
-									)
+									),
+									'condition'   => '__start:not()',
 							),
 							array (
 									'id' => '__repeat_days',
@@ -182,45 +212,37 @@ function custom_meta_boxes() {
 											array(
 													'value'       => 'all',
 													'label'       => __( 'All dates', 'mTheme' ),
-													'src'         => ''
 											),
 											array(
-													'value'       => 'mon',
+													'value'       => '1',
 													'label'       => __( 'Monday', 'mTheme' ),
-													'src'         => ''
 											),
 											array(
-													'value'       => 'tue',
+													'value'       => '2',
 													'label'       => __( 'Tuesday', 'mTheme' ),
-													'src'         => ''
 											),
 											array(
-													'value'       => 'wed',
+													'value'       => '3',
 													'label'       => __( 'Wednesday', 'mTheme' ),
-													'src'         => ''
 											),
 											array(
-													'value'       => 'thu',
+													'value'       => '4',
 													'label'       => __( 'Thursday', 'mTheme' ),
-													'src'         => ''
 											),
 											array(
-													'value'       => 'fri',
+													'value'       => '5',
 													'label'       => __( 'Friday', 'mTheme' ),
-													'src'         => ''
 											),
 											array(
-													'value'       => 'sat',
+													'value'       => '6',
 													'label'       => __( 'Saturday', 'mTheme' ),
-													'src'         => ''
 											),
 											array(
-													'value'       => 'sun',
+													'value'       => '7',
 													'label'       => __( 'Sunday', 'mTheme' ),
-													'src'         => ''
 											),
 									),
-									'condition'   => '__repeat:is(weekly)',
+									'condition'   => '__start:not(),__repeat:is(weekly)',
 							),
 							array (
 									'id' => '__customize',
@@ -234,14 +256,7 @@ function custom_meta_boxes() {
 													'type' => 'date-time-picker',
 											),
 									),
-									'condition'   => '__repeat:is(customize)',
-							),
-							array (
-									'id' => '__end',
-									'label' => __ ( 'End Date', 'mTheme' ),
-									'desc' => __ ( '', 'mTheme' ),
-									'type' => 'date-time-picker',
-									'condition'   => '__repeat:not(no)',
+									'condition'   => '__start:not(),__repeat:is(customize)',
 							),
 					)
 			),

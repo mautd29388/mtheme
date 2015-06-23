@@ -48,21 +48,19 @@ add_action ( 'wp_enqueue_scripts', 'mTheme_scripts' );
 function mTheme_scripts() {
 	
 	// Load Style
-	wp_enqueue_style ( 'mTheme-font-awesome', trailingslashit( get_template_directory_uri () ) . 'assets/css/bootstrap.css' );
-	wp_enqueue_style ( 'mTheme-nivo', trailingslashit( get_template_directory_uri () ) . 'assets/css/bootstrap-theme.min.css' );
-	wp_enqueue_style ( 'mTheme-bootstrap', trailingslashit( get_template_directory_uri () ) . 'assets/css/jqueryui/jquery-ui-1.10.3.custom.css' );
-	wp_enqueue_style ( 'mTheme-smoothDivScroll', trailingslashit( get_template_directory_uri () ) . 'assets/css/main.css' );
+	wp_enqueue_style ( 'mTheme-bootstrap', trailingslashit( get_template_directory_uri () ) . 'assets/css/bootstrap.min.css' );
+	wp_enqueue_style ( 'mTheme-bootstrap-theme', trailingslashit( get_template_directory_uri () ) . 'assets/css/bootstrap-theme.min.css' );
 	wp_enqueue_style ( 'mTheme-main', trailingslashit( get_template_directory_uri () ) . 'assets/css/main.css' );
-	wp_enqueue_style ( 'mTheme-responsive', trailingslashit( get_template_directory_uri () ) . 'assets/css/responsive.css' );
-	wp_enqueue_style ( 'mTheme-color', trailingslashit( get_template_directory_uri () ) . 'assets/css/color/default.css' );
+	//wp_enqueue_style ( 'mTheme-responsive', trailingslashit( get_template_directory_uri () ) . 'assets/css/responsive.css' );
+	//wp_enqueue_style ( 'mTheme-color', trailingslashit( get_template_directory_uri () ) . 'assets/css/color/default.css' );
 	
 	wp_enqueue_style ( 'mTheme-style', get_stylesheet_uri() );
 	
 	
 	// Load Script
 	wp_enqueue_script ( 'modernizr-js', trailingslashit( get_template_directory_uri () ) . 'assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js' );
-	wp_enqueue_script ( 'jquery-custom-js', 'https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array (''), null, true );
-	wp_enqueue_script ( 'mousewheel-js', trailingslashit( get_template_directory_uri () ) . 'assets/js/build/production.js', array ('jquery'), null, true );
+	wp_enqueue_script ( 'bootstrap-js', trailingslashit( get_template_directory_uri () ) . 'assets/js/vendor/bootstrap.min.js', array ('jquery'), null, true );
+	wp_enqueue_script ( 'main-js', trailingslashit( get_template_directory_uri () ) . 'assets/js/main.js', array ('jquery'), null, true );
 
 	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 }	

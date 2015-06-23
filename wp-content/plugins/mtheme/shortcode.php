@@ -8,13 +8,17 @@ class mTheme_Sshortcode {
 		add_shortcode('mTheme_team', array(	$this, 'mTheme_team_shortcode'));
 		add_shortcode('mTheme_portfolio', array(	$this, 'mTheme_portfolio_shortcode'));
 		add_shortcode('mTheme_classes', array(	$this, 'mTheme_classes_shortcode'));
+		add_shortcode('mTheme_upcoming_classes', array(	$this, 'mTheme_upcoming_classes_shortcode'));
+		
 		add_shortcode('mTheme_testimonials', array( $this, 'mTheme_testimonials_shortcode') );
 		
+		/*
 		add_shortcode('mTheme_tabs', array( $this, 'mTheme_tabs_shortcode' ));
 		add_shortcode('mTheme_tab_titles', array( $this, 'mTheme_tab_titles_shortcode' ));
 		add_shortcode('mTheme_tab_title', array( $this, 'mTheme_tab_title_shortcode' ));
 		add_shortcode('mTheme_tab_contents', array( $this, 'mTheme_tab_contents_shortcode' ));
 		add_shortcode('mTheme_tab_content', array( $this, 'mTheme_tab_content_shortcode' ));
+		*/
 		
 		add_filter( 'the_content', array($this, 'shortcode_empty_paragraph_fix') );
 	}
@@ -101,7 +105,7 @@ class mTheme_Sshortcode {
 	
 	
 	/**
-	 * Portfolio
+	 * Classes
 	 */
 	public function mTheme_classes_shortcode( $atts ){
 	
@@ -110,17 +114,40 @@ class mTheme_Sshortcode {
 		$atts = shortcode_atts( array(
 		), $atts );
 	
+		$week_next	= strtotime( "next monday" );
+		$week_start	= strtotime( "previous monday" );
+		$week_previous	= strtotime( "-7days today");
+		
+		if ( $week_start == $week_previous ) {
+			$week_start = strtotime( "today" );
+		}
+		
 		$args = array(
 				'post_type' => 'mclasses',
-				'posts_per_page' => $atts['posts_per_page'],
+				'posts_per_page' => '-1',
+				'meta_query' => array(
+						'relation' => 'AND',
+						array(
+								'key'		=> '__start',
+								'value'		=> date('Y-m-d', $week_next),
+								'type'		=> 'DATE',
+								'compare'	=> '<',
+						),
+						array(
+								'key'		=> '__end',
+								'value'		=> date('Y-m-d', $week_start),
+								'type'		=> 'DATE',
+								'compare'	=> '>=',
+						),
+				),
 		);
 	
 			
 		$classes['query'] = new WP_Query( $args );
 	
 		ob_start();
-	
-		get_template_part('contents/classes', '');
+		
+		get_template_part('contents/shortcodes/classes', '');
 	
 		$html = ob_get_contents();
 	
@@ -131,6 +158,57 @@ class mTheme_Sshortcode {
 		return $html;
 	}
 	
+	function mTheme_upcoming_classes_shortcode( $atts ) {
+		
+		global $upcoming_classes;
+		
+		$atts = shortcode_atts( 
+				array(
+						'number' => '4',
+						'style' => 'style_v1',
+				),
+		$atts );
+		
+		$tomorrow	= strtotime( "tomorrow" );
+		$now 		= strtotime("now");
+		
+		$query_args = array(
+				'post_type' => 'mclasses',
+				'posts_per_page' => '-1',
+				'meta_query' => array(
+						'relation' => 'AND',
+						array(
+								'key'		=> '__start',
+								'value'		=> date('Y-m-d', $now),
+								'type'		=> 'DATE',
+								'compare'	=> '<',
+						),
+						array(
+								'key'		=> '__end',
+								'value'		=> date('Y-m-d', $tomorrow),
+								'type'		=> 'DATE',
+								'compare'	=> '>',
+						),
+				),
+		);
+		
+			
+		$upcoming_classes['query'] = new WP_Query( $query_args );
+		
+		$upcoming_classes['instance'] = $atts;
+		
+		ob_start();
+		
+		get_template_part('contents/shortcodes/upcoming-classes', '');
+		
+		$html = ob_get_contents();
+		
+		ob_end_clean();
+		
+		wp_reset_postdata();
+		
+		return $html;
+	}
 	
 	/**
 	 * Testimonials 

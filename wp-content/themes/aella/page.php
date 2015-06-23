@@ -2,7 +2,7 @@
 
 get_header(); 
 ?>
-<section class="section-page">
+<section class="container section-page">
 
 	<?php
 	// Start the loop.

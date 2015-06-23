@@ -260,6 +260,99 @@ function mTheme_comment($comment, $args, $depth) {
 		<?php 
 }
 
+
+add_action('wp_head', 'mTheme_classes_style');
+function mTheme_classes_style() {
+
+	$classes_cats = get_terms('mclasses_cat');
+
+	$style = '';
+	foreach ( $classes_cats as $classes_cat ) {
+		$style .= '.search-class .' . $classes_cat->slug . ' {';
+		$background_color = get_field( "background_color", "{$classes_cat->taxonomy}_{$classes_cat->term_id}");
+		$text_color = get_field( "text_color", "{$classes_cat->taxonomy}_{$classes_cat->term_id}");
+		
+		if ( isset($background_color) && !empty($background_color) ) { 
+			$style .= 'background-color: ' . $background_color . ';';
+		}
+		
+		if ( isset($text_color) && !empty($text_color) ) {
+			$style .= 'color: ' . $text_color . ';';
+		}
+		
+		$style .= '}';
+	}
+	
+	echo "<style type='text/css'>$style</style>";
+	
+}
+
+
+/**
+ * Check Ajax
+ * */
+function mTheme_is_ajax(){
+
+	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+		return true;
+	}
+	
+	return false;
+}
+
+/**
+ * Add Shortcodes to Visual Composer
+ * */
+add_action( 'vc_before_init', 'add_shortcodes_classes' );
+add_action( 'vc_before_init', 'add_shortcodes_upcoming_classes' );
+
+function add_shortcodes_classes( ) {
+
+	vc_map( 
+			
+			array(
+					'name' => __( 'mTheme Classes', 'mTheme' ),
+					'base' => 'mTheme_classes',
+					'category' => __( 'mTheme', 'mTheme' ),
+					'icon' => 'vc_element-icon icon-wpb-atm',
+					"params" => array()
+			)
+	);
+}
+
+function add_shortcodes_upcoming_classes() {
+
+	vc_map(
+			array(
+					'name' => __( 'mTheme Upcoming Classes', 'mTheme' ),
+					'base' => 'mTheme_upcoming_classes',
+					'category' => __( 'mTheme', 'mTheme' ),
+					'icon' => 'vc_element-icon icon-wpb-atm',
+					"params" => array(
+							array(
+									'type' => 'textfield',
+									'heading' => __( 'Number of Classes', 'mTheme' ),
+									'param_name' => 'number',
+									'value' => '4',
+							),
+							array(
+									'type' => 'dropdown',
+									'heading' => __( 'Style', 'mTheme' ),
+									'param_name' => 'style',
+									'value' => array(
+											__( 'Style v1', 'mTheme' ) => 'style_v1',
+											__( 'Style v2', 'mTheme' ) => 'style_v2',
+									)
+							),
+					),
+			)
+	);
+}
+
+
+/**
+ * Custom Maps
+ * */
 if ( class_exists('WPSL_Frontend') ) {
 
 	class mTheme_Map extends WPSL_Frontend {
