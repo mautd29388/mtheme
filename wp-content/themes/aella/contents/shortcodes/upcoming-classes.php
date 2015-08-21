@@ -121,18 +121,26 @@
 	<?php } else { ?>
 		<div class="background-grey">
 			<ul class="vertical-timetable timetable">
-			<?php foreach ( $classes_posts as $__classes_posts ) { ?>
-				<?php foreach ( $__classes_posts as $classes_post ) { ?>
-				<li class="time">
+				<li class="featured">
 	                <div class="data">
-	                  <span class="title"><?php echo get_the_title($classes_post['id']); ?></span>
-	                  <a href="<?php echo get_permalink($classes_post['id']); ?>"><?php echo date('H:i', $classes_post['date']); ?></a>
-	                  <!-- /.additional-data -->
+	                	<span class="title">NOW IT`S</span>
+	                	<a href="#"><?php echo date('H:i'); ?></a>
+	               		<!-- /.additional-data -->
 	                </div>
 	                <!-- /.data -->
-	              </li>
+          		</li>
+				<?php foreach ( $classes_posts as $__classes_posts ) { ?>
+					<?php foreach ( $__classes_posts as $classes_post ) { ?>
+					<li class="time">
+		                <div class="data">
+		                  <span class="title"><?php echo get_the_title($classes_post['id']); ?></span>
+		                  <a href="<?php echo get_permalink($classes_post['id']); ?>"><?php echo date('H:i', $classes_post['date']); ?></a>
+		                  <!-- /.additional-data -->
+		                </div>
+		                <!-- /.data -->
+	    			</li>
 	              <?php }
-			} ?>
+				} ?>
 			</ul>
 		</div>
 	<?php }

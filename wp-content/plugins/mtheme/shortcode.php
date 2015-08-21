@@ -5,14 +5,13 @@ class mTheme_Sshortcode {
 	
 	public function __construct(){
 		
+		add_shortcode('mTheme_classes', array(	$this, 'mTheme_classes_shortcode'));
+		add_shortcode('mTheme_classes_news', array(	$this, 'mTheme_classes_news_shortcode'));
+		add_shortcode('mTheme_upcoming_classes', array(	$this, 'mTheme_upcoming_classes_shortcode'));
+		/*
 		add_shortcode('mTheme_team', array(	$this, 'mTheme_team_shortcode'));
 		add_shortcode('mTheme_portfolio', array(	$this, 'mTheme_portfolio_shortcode'));
-		add_shortcode('mTheme_classes', array(	$this, 'mTheme_classes_shortcode'));
-		add_shortcode('mTheme_upcoming_classes', array(	$this, 'mTheme_upcoming_classes_shortcode'));
-		
 		add_shortcode('mTheme_testimonials', array( $this, 'mTheme_testimonials_shortcode') );
-		
-		/*
 		add_shortcode('mTheme_tabs', array( $this, 'mTheme_tabs_shortcode' ));
 		add_shortcode('mTheme_tab_titles', array( $this, 'mTheme_tab_titles_shortcode' ));
 		add_shortcode('mTheme_tab_title', array( $this, 'mTheme_tab_title_shortcode' ));
@@ -103,6 +102,142 @@ class mTheme_Sshortcode {
 		return $html;
 	}
 	
+	/**
+	 * Testimonials
+	 */
+	public function mTheme_testimonials_shortcode( $atts ){
+	
+		global $testimonials;
+	
+		$args = array(
+				'post_type' => 'mtestimonial',
+				'posts_per_page' => '-1',
+		);
+	
+		$testimonials['query'] = new WP_Query( $args );
+	
+		ob_start();
+	
+		get_template_part('contents/content', 'testimonials');
+	
+		$html = ob_get_contents();
+	
+		ob_end_clean();
+	
+		wp_reset_postdata();
+	
+		return $html;
+	}
+	
+	
+	
+	/**
+	 * Tabs
+	 */
+	
+	private static $mTheme_tabs = 0;
+	private static $mTheme_tab_title = 0;
+	private static $mTheme_tab_content = 0;
+	
+	public function mTheme_tabs_shortcode( $atts, $content = null ){
+	
+		self::$mTheme_tabs++;
+		self::$mTheme_tab_title = 0;
+		self::$mTheme_tab_content = 0;
+	
+	
+			ob_start(); ?>
+		
+			<div class="aella-tabs" role="tabpanel">
+			<?php  echo do_shortcode($content); ?>
+			</div>
+			<?php 
+			$html = ob_get_contents();
+		
+			ob_end_clean();
+		
+			return $html;
+		}
+		
+		public function mTheme_tab_titles_shortcode( $atts, $content = null ){
+			
+			
+			
+			ob_start(); ?>
+		
+			<ul id="aellaTab-<?php echo self::$mTheme_tabs; ?>" class="nav nav-tabs" role="tablist">
+			<?php  echo do_shortcode($content); ?>
+			</ul>
+			<?php 
+			$html = ob_get_contents();
+		
+			ob_end_clean();
+		
+			return $html;
+		}
+		
+		public function mTheme_tab_title_shortcode( $atts, $content = null ){
+			
+			self::$mTheme_tab_title++;
+			
+			$atts = shortcode_atts( array(
+				'id_content' => '',
+				'id' => '',
+				'title' => '',
+			), $atts );
+		
+			extract($atts);
+			
+			ob_start(); ?>
+		
+			<li role="presentation" class="<?php echo self::$mTheme_tab_title == 1 ? 'active' : ''; ?>">
+				<a href="<?php echo '#' . $id_content; ?>" id="<?php echo $id; ?>" role="tab" data-toggle="tab"><?php echo $title; ?></a>
+			</li>
+			
+			<?php 
+			$html = ob_get_contents();
+		
+			ob_end_clean();
+		
+			return $html;
+		}
+		
+		public function mTheme_tab_contents_shortcode( $atts, $content = null ){
+		
+			ob_start(); ?>
+		
+			<div id="aellaContent-<?php echo self::$mTheme_tabs; ?>" class="tab-content">
+			<?php  echo do_shortcode($content); ?>
+			</div>
+			<?php 
+			$html = ob_get_contents();
+		
+			ob_end_clean();
+		
+			return $html;
+		}
+		
+		public function mTheme_tab_content_shortcode( $atts, $content = null ){
+			
+			self::$mTheme_tab_content++;
+			
+			$atts = shortcode_atts( array(
+				'id' => '',
+			), $atts );
+		
+			extract($atts);
+			
+			ob_start(); ?>
+			<div role="tabpanel" class="tab-pane fade <?php echo self::$mTheme_tab_content == 1 ? 'in active' : ''; ?>" id="<?php echo $id; ?>">
+				<?php echo do_shortcode($content); ?>
+			</div>
+			<?php 
+			$html = ob_get_contents();
+		
+			ob_end_clean();
+		
+			return $html;
+		}
 	
 	/**
 	 * Classes
@@ -158,6 +293,36 @@ class mTheme_Sshortcode {
 		return $html;
 	}
 	
+	function mTheme_classes_news_shortcode($atts) {
+		global $classes;
+
+		$atts = shortcode_atts( array(
+			'posts_per_page'	=> '4',
+			'class_name'		=> '',
+		), $atts );
+		
+		$args = array(
+				'post_type' => 'mclasses',
+				'posts_per_page' => $atts['posts_per_page'],
+		);
+		
+		$classes['instance'] = $atts;
+		
+		$classes['query'] = new WP_Query( $args );
+		
+		ob_start();
+		
+		get_template_part('contents/shortcodes/classes-news', '');
+		
+		$html = ob_get_contents();
+		
+		ob_end_clean();
+		
+		wp_reset_postdata();
+		
+		return $html;
+	}
+	
 	function mTheme_upcoming_classes_shortcode( $atts ) {
 		
 		global $upcoming_classes;
@@ -210,144 +375,6 @@ class mTheme_Sshortcode {
 		return $html;
 	}
 	
-	/**
-	 * Testimonials 
-	 */
-	public function mTheme_testimonials_shortcode( $atts ){
-	
-		global $testimonials;
-	
-		$args = array(
-				'post_type' => 'mtestimonial',
-				'posts_per_page' => '-1',
-		);
-	
-		$testimonials['query'] = new WP_Query( $args );
-	
-		ob_start();
-	
-		get_template_part('contents/content', 'testimonials');
-	
-		$html = ob_get_contents();
-	
-		ob_end_clean();
-	
-		wp_reset_postdata();
-	
-		return $html;
-	}
-	
-	
-	
-	/**
-	 * Tabs
-	 */
-	
-	private static $mTheme_tabs = 0;
-	private static $mTheme_tab_title = 0;
-	private static $mTheme_tab_content = 0;
-	
-	public function mTheme_tabs_shortcode( $atts, $content = null ){
-		
-		self::$mTheme_tabs++;
-		self::$mTheme_tab_title = 0;
-		self::$mTheme_tab_content = 0;
-		
-		
-		ob_start(); ?>
-	
-		<div class="aella-tabs" role="tabpanel">
-		<?php  echo do_shortcode($content); ?>
-		</div>
-		<?php 
-		$html = ob_get_contents();
-	
-		ob_end_clean();
-	
-		return $html;
-	}
-	
-	public function mTheme_tab_titles_shortcode( $atts, $content = null ){
-		
-		
-		
-		ob_start(); ?>
-	
-		<ul id="aellaTab-<?php echo self::$mTheme_tabs; ?>" class="nav nav-tabs" role="tablist">
-		<?php  echo do_shortcode($content); ?>
-		</ul>
-		<?php 
-		$html = ob_get_contents();
-	
-		ob_end_clean();
-	
-		return $html;
-	}
-	
-	public function mTheme_tab_title_shortcode( $atts, $content = null ){
-		
-		self::$mTheme_tab_title++;
-		
-		$atts = shortcode_atts( array(
-			'id_content' => '',
-			'id' => '',
-			'title' => '',
-		), $atts );
-	
-		extract($atts);
-		
-		ob_start(); ?>
-	
-		<li role="presentation" class="<?php echo self::$mTheme_tab_title == 1 ? 'active' : ''; ?>">
-			<a href="<?php echo '#' . $id_content; ?>" id="<?php echo $id; ?>" role="tab" data-toggle="tab"><?php echo $title; ?></a>
-		</li>
-		
-		<?php 
-		$html = ob_get_contents();
-	
-		ob_end_clean();
-	
-		return $html;
-	}
-	
-	public function mTheme_tab_contents_shortcode( $atts, $content = null ){
-	
-	
-	
-			ob_start(); ?>
-		
-			<div id="aellaContent-<?php echo self::$mTheme_tabs; ?>" class="tab-content">
-			<?php  echo do_shortcode($content); ?>
-			</div>
-			<?php 
-			$html = ob_get_contents();
-		
-			ob_end_clean();
-		
-			return $html;
-		}
-		
-		public function mTheme_tab_content_shortcode( $atts, $content = null ){
-			
-			self::$mTheme_tab_content++;
-			
-			$atts = shortcode_atts( array(
-				'id' => '',
-			), $atts );
-		
-			extract($atts);
-			
-			ob_start(); ?>
-			<div role="tabpanel" class="tab-pane fade <?php echo self::$mTheme_tab_content == 1 ? 'in active' : ''; ?>" id="<?php echo $id; ?>">
-				<?php echo do_shortcode($content); ?>
-			</div>
-			<?php 
-			$html = ob_get_contents();
-		
-			ob_end_clean();
-		
-			return $html;
-		}
 }
 
 new mTheme_Sshortcode();

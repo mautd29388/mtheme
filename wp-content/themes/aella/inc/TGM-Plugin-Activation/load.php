@@ -57,6 +57,20 @@ function my_theme_register_required_plugins() {
 		),
     		
 		array(
+    		'name'               => 'WPBakery Visual Composer', 
+    		'slug'               => 'js_composer',
+    		'source'             => 'http://source.mtheme.org/plugins/js_composer.zip',
+    		'required'           => true,
+		),
+
+		array(
+    		'name'               => 'Revolution Slider', // The plugin name.
+    		'slug'               => 'revslider', // The plugin slug (typically the folder name).
+    		'source'             => 'http://source.mtheme.org/plugins/revslider.zip', // The plugin source.
+    		'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+		),
+    		
+		array(
 			'name'               => 'Contact Form 7',
 			'slug'               => 'contact-form-7',
 			'required'           => true,
